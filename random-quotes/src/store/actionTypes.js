@@ -1,0 +1,3 @@
+export const REQUEST_QUOTE = 'REQUEST_QUOTE';
+export const RECEIVE_QUOTE = 'RECEIVE_QUOTE';
+export const FAIL_TO_LOAD_QUOTE = 'FAIL_TO_LOAD_QUOTE';
