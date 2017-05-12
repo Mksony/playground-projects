@@ -5,4 +5,4 @@ It serves as a playground for projects and for testing new tools from the react 
 
 To see the storybook of components check out the repo, browse into `common` and run `npm i && npm run storybook`.
 
-For the random-quote-client check out the repo, browse into `common` and run `npm i && npm start`.
+For the random-quote-client check out the repo, browse into `random-quotes` and run `npm i && npm start`.
