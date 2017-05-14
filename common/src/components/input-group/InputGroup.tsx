@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-// import { getFormElementDimensions } from '../../styles';
+import { Sizes } from 'types';
 
 import Input, {InputProps} from '../input/Input';
 import Button, {ButtonProps} from '../button/Button';
@@ -10,7 +10,7 @@ export interface InputGroupProps {
   inputProps?: InputProps,
   buttonLabel?: string;
   placeholder?: string;
-  size?: 'small' | 'default' | 'medium' | 'large';
+  size?: Sizes;
   className?: string;
 }
 

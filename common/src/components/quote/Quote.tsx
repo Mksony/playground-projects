@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import {DefaultColors} from 'types';
+import { DefaultColors } from 'types';
 
 import Tag from '../tag/Tag';
 

@@ -42,7 +42,7 @@ const BaseContainer: React.SFC<BaseContainerProps> = ({
     </StyledChildContainer>
   </div>
 );
-/* eslint-disable */
+
 const getCenterStyles = (props: BaseContainerProps) => {
   const verticalCenter = 'align-items: center;';
   const horizontalCenter = 'justify-content: center;';
@@ -66,7 +66,6 @@ const getCenterStyles = (props: BaseContainerProps) => {
   return '';
 };
 
-/* eslint-disable no-confusing-arrow*/
 const StyledContainer = styled(BaseContainer)`
   position: relative;
   color: ${props => props.textColor ? props.textColor : 'inherit'};

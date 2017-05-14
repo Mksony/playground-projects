@@ -1,10 +1,12 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { Sizes } from 'types';
+
 import { getFormElementDimensions } from '../../styles';
 
 export interface InputProps {
   isValid?: boolean;
-  size?: 'small' | 'default' | 'medium' | 'large'; // TODO: move this to common types
+  size?: Sizes;
   onBlur?: any;
   onChange?: any;
   autoComplete?: string;

@@ -1,11 +1,13 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { DefaultColors, Sizes } from 'types';
+
 import { colors, getFormElementDimensions } from '../../styles';
 
 export interface ButtonProps {
   component?: any; // TODO: Find correct typing for component or string
-  size?: 'small' | 'default' | 'medium' | 'large';
-  color: 'primary' | 'secondary' | 'succes' | 'warning' | 'danger';
+  size?: Sizes;
+  color: DefaultColors;
   ghost?: boolean;
   className?: string;
   onClick?: any;
