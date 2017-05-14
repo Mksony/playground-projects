@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
+import { Sizes } from 'types';
 import { InputProps } from '../input/Input';
 import { ButtonProps } from '../button/Button';
 export interface InputGroupProps {
@@ -7,7 +8,7 @@ export interface InputGroupProps {
     inputProps?: InputProps;
     buttonLabel?: string;
     placeholder?: string;
-    size?: 'small' | 'default' | 'medium' | 'large';
+    size?: Sizes;
     className?: string;
 }
 declare const StyledInputGroup: React.ComponentClass<InputGroupProps & {

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var styled_components_1 = require("styled-components");
 // FIXME: Workaround to make css() work with reduce;
 var css = styled_components_1.css;
@@ -24,7 +25,6 @@ var media = Object.keys(sizes).reduce(function (accumulator, label) {
     };
     return accumulator;
 }, {});
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable */
 exports.default = media;
 //# sourceMappingURL=media.js.map

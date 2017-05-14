@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var theme = {
     flexboxgrid: {
         // Defaults
@@ -17,6 +18,5 @@ var theme = {
         },
     },
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = theme;
 //# sourceMappingURL=theme.js.map

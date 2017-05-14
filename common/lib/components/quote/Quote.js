@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var styled_components_1 = require("styled-components");
 var Tag_1 = require("../tag/Tag");
@@ -12,7 +13,6 @@ var Quote = function (_a) {
             React.createElement(TagWrapper, null, tags.map(function (tag) { return React.createElement(Tag_1.default, { text: tag, color: tagColor }); }))));
 };
 var StyledQuote = (_b = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], _b.raw = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], styled_components_1.default(Quote)(_b));
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = StyledQuote;
 var _a, _b;
 //# sourceMappingURL=Quote.js.map

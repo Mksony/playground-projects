@@ -16,6 +16,7 @@ var __rest = (this && this.__rest) || function (s, e) {
             t[p[i]] = s[p[i]];
     return t;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var styled_components_1 = require("styled-components");
 var styles_1 = require("../../styles");
@@ -33,7 +34,6 @@ StyledButton.defaultProps = {
     size: 'default',
     color: 'primary',
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = StyledButton;
 var _a;
 //# sourceMappingURL=Button.js.map

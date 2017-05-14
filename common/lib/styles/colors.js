@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var colors = {
     grey: {
         extraLight: '#f8f9fa',
@@ -12,6 +13,5 @@ var colors = {
     warning: '#ffdd57',
     danger: '#ff3860',
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = colors;
 //# sourceMappingURL=colors.js.map

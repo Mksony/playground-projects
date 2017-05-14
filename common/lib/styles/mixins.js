@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var formElementFontSizes = {
     small: '.75rem',
     medium: '1.25rem',

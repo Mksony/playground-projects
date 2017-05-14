@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var styled_components_1 = require("styled-components");
 var _1 = require("./");
 var addDefaultStyles = function () {
@@ -19,6 +20,5 @@ var addDefaultStyles = function () {
         "\n  }\n  img {\n    max-width: 100%;\n  }\n"], styled_components_1.injectGlobal(_a, _1.colors.grey.dark, (_b = ["\n        font-size: 1.1rem;\n        line-height: 1.5;\n      "], _b.raw = ["\n        font-size: 1.1rem;\n        line-height: 1.5;\n      "], _1.media.sm(_b)), (_c = ["\n        font-size: 1.2rem;\n        line-height: 1.5;\n      "], _c.raw = ["\n        font-size: 1.2rem;\n        line-height: 1.5;\n      "], _1.media.md(_c)), (_d = ["\n        font-size: 2.4em;\n      "], _d.raw = ["\n        font-size: 2.4em;\n      "], _1.media.sm(_d)), (_e = ["\n        font-size: 2.8em;\n      "], _e.raw = ["\n        font-size: 2.8em;\n      "], _1.media.md(_e)), (_f = ["\n        font-size: 2em;\n      "], _f.raw = ["\n        font-size: 2em;\n      "], _1.media.sm(_f)), (_g = ["\n        font-size: 2.2em;\n      "], _g.raw = ["\n        font-size: 2.2em;\n      "], _1.media.md(_g)), (_h = ["\n        font-size: 1.8em;\n      "], _h.raw = ["\n        font-size: 1.8em;\n      "], _1.media.sm(_h)), (_j = ["\n        font-size: 2em;\n      "], _j.raw = ["\n        font-size: 2em;\n      "], _1.media.md(_j)), (_k = ["\n        font-size: 1.6em;\n      "], _k.raw = ["\n        font-size: 1.6em;\n      "], _1.media.sm(_k)), (_l = ["\n        font-size: 1.8em;\n      "], _l.raw = ["\n        font-size: 1.8em;\n      "], _1.media.md(_l)), (_m = ["\n        font-size: 1.4em;\n      "], _m.raw = ["\n        font-size: 1.4em;\n      "], _1.media.sm(_m)), (_o = ["\n        font-size: 1.6em;\n      "], _o.raw = ["\n        font-size: 1.6em;\n      "], _1.media.md(_o)), (_p = ["\n        font-size: 1.4em;\n      "], _p.raw = ["\n        font-size: 1.4em;\n      "], _1.media.sm(_p)), (_q = ["\n        font-size: 1.6em;\n      "], _q.raw = ["\n        font-size: 1.6em;\n      "], _1.media.md(_q))));
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = addDefaultStyles;
 //# sourceMappingURL=default.js.map

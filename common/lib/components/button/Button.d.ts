@@ -1,9 +1,10 @@
 /// <reference types="react" />
 import * as React from 'react';
+import { DefaultColors, Sizes } from 'types';
 export interface ButtonProps {
     component?: any;
-    size?: 'small' | 'default' | 'medium' | 'large';
-    color: 'primary' | 'secondary' | 'succes' | 'warning' | 'danger';
+    size?: Sizes;
+    color: DefaultColors;
     ghost?: boolean;
     className?: string;
     onClick?: any;

@@ -1,8 +1,9 @@
 /// <reference types="react" />
 import * as React from 'react';
+import { Sizes } from 'types';
 export interface InputProps {
     isValid?: boolean;
-    size?: 'small' | 'default' | 'medium' | 'large';
+    size?: Sizes;
     onBlur?: any;
     onChange?: any;
     autoComplete?: string;
