@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var styled_components_1 = require("styled-components");
 // FIXME: Workaround to make css() work with reduce;
+// tslint:disable:no-any
 var css = styled_components_1.css;
 var sizes = {
     lg: 1024,
@@ -9,12 +10,8 @@ var sizes = {
     sm: 480,
     xs: 0,
 };
-/* eslint-disable */
 // iterate through the sizes and create a media template
 var media = Object.keys(sizes).reduce(function (accumulator, label) {
-    // use em in breakpoints to work properly cross-browser and support users
-    // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
-    /* eslint-disable no-param-reassign */
     accumulator[label] = function () {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {
@@ -25,6 +22,5 @@ var media = Object.keys(sizes).reduce(function (accumulator, label) {
     };
     return accumulator;
 }, {});
-/* eslint-disable */
 exports.default = media;
 //# sourceMappingURL=media.js.map

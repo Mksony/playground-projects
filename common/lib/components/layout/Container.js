@@ -25,10 +25,16 @@ var getCenterStyles = function (props) {
     }
     return '';
 };
-var StyledContainer = (_b = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  background: ", " ", ";\n  ", "\n  padding: 20px 10px;\n  ", "\n  ", "\n  ", "\n"], _b.raw = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  background: ", " ", ";\n  ", "\n  padding: 20px 10px;\n  ",
+var resolveBackground = function (_a) {
+    var bgColor = _a.bgColor, backgroundUrl = _a.backgroundUrl;
+    var backgroundColor = bgColor ? "linear-gradient(" + bgColor + ", " + bgColor + ")" : 'transparent';
+    var url = backgroundUrl ? ", url(" + backgroundUrl + ") no-repeat center / cover" : '';
+    return "background: " + backgroundColor + url;
+};
+var StyledContainer = (_b = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ", "\n  ", "\n  ", "\n"], _b.raw = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ",
     "\n  ",
     "\n  ",
-    "\n"], styled_components_1.default(BaseContainer)(_b, function (props) { return props.textColor ? props.textColor : 'inherit'; }, function (props) { return props.fullHeight ? '100vh' : 'initial'; }, function (props) { return props.bgColor ? "linear-gradient(" + props.bgColor + ", " + props.bgColor + ")" : 'transparent'; }, function (props) { return props.backgroundUrl ? ", url(" + props.backgroundUrl + ") no-repeat center / cover" : ''; }, getCenterStyles, (_c = ["\n    padding: 30px 20px;\n  "], _c.raw = ["\n    padding: 30px 20px;\n  "], styles_1.media.sm(_c)), (_d = ["\n    padding: 50px 30px;\n  "], _d.raw = ["\n    padding: 50px 30px;\n  "], styles_1.media.md(_d)), (_e = ["\n    padding: 70px 40px;\n  "], _e.raw = ["\n    padding: 70px 40px;\n  "], styles_1.media.lg(_e))));
+    "\n"], styled_components_1.default(BaseContainer)(_b, function (props) { return props.textColor ? props.textColor : 'inherit'; }, function (props) { return props.fullHeight ? '100vh' : 'initial'; }, getCenterStyles, resolveBackground, (_c = ["\n    padding: 30px 20px;\n  "], _c.raw = ["\n    padding: 30px 20px;\n  "], styles_1.media.sm(_c)), (_d = ["\n    padding: 50px 30px;\n  "], _d.raw = ["\n    padding: 50px 30px;\n  "], styles_1.media.md(_d)), (_e = ["\n    padding: 70px 40px;\n  "], _e.raw = ["\n    padding: 70px 40px;\n  "], styles_1.media.lg(_e))));
 exports.default = StyledContainer;
 var _a, _b, _c, _d, _e;
 //# sourceMappingURL=Container.js.map

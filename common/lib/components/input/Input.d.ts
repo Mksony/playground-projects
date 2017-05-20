@@ -4,8 +4,8 @@ import { Sizes } from 'types';
 export interface InputProps {
     isValid?: boolean;
     size?: Sizes;
-    onBlur?: any;
-    onChange?: any;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     autoComplete?: string;
     autoFocus?: boolean;
     placeholder?: string;

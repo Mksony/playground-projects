@@ -34,7 +34,7 @@ var Input = (function (_super) {
     };
     Input.prototype.render = function () {
         var _a = this.props, autoComplete = _a.autoComplete, autoFocus = _a.autoFocus, placeholder = _a.placeholder, className = _a.className, type = _a.type;
-        return (React.createElement("input", { autoComplete: autoComplete, autoFocus: autoFocus, onBlur: this.handleBlur, placeholder: placeholder, className: className, type: type }));
+        return (React.createElement("input", { autoComplete: autoComplete, autoFocus: autoFocus, onBlur: this.handleBlur, placeholder: placeholder, className: className, type: type, onChange: this.handleChange }));
     };
     return Input;
 }(React.Component));

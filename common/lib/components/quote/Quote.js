@@ -10,7 +10,7 @@ var Quote = function (_a) {
         React.createElement("p", { className: "h1" }, text),
         React.createElement("p", { className: "h3" }, author),
         tags &&
-            React.createElement(TagWrapper, null, tags.map(function (tag) { return React.createElement(Tag_1.default, { text: tag, color: tagColor }); }))));
+            (React.createElement(TagWrapper, null, tags.map(function (tag) { return React.createElement(Tag_1.default, { text: tag, color: tagColor }); })))));
 };
 var StyledQuote = (_b = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], _b.raw = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], styled_components_1.default(Quote)(_b));
 exports.default = StyledQuote;

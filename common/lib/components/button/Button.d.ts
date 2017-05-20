@@ -7,8 +7,8 @@ export interface ButtonProps {
     color: DefaultColors;
     ghost?: boolean;
     className?: string;
-    onClick?: any;
-    type?: any;
+    onClick?: {};
+    type?: {};
     label?: string;
 }
 declare const StyledButton: React.ComponentClass<ButtonProps & {

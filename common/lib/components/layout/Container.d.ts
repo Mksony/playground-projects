@@ -4,7 +4,7 @@ export interface ChildContainerProps {
     fluid?: boolean;
     textCenter?: boolean;
     maxWidth?: number;
-    className?: any;
+    className?: string;
 }
 export interface BaseContainerProps extends ChildContainerProps {
     className?: string;
