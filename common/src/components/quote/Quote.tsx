@@ -26,7 +26,7 @@ const Quote: React.SFC<QuoteProps> = ({
   author,
   tags,
   tagColor = 'primary',
-  className
+  className,
 }) => (
     <blockquote className={className}>
       <p className="h1">
@@ -36,15 +36,15 @@ const Quote: React.SFC<QuoteProps> = ({
         {author}
       </p>
       {tags &&
-        <TagWrapper>
-          {
-          tags.map(tag => <Tag text={tag} color={tagColor}/>)
-          }
-        </TagWrapper>}
+        (
+          <TagWrapper>
+            {tags.map(tag => <Tag text={tag} color={tagColor} />)}
+          </TagWrapper>
+        )}
     </blockquote>
   );
 
-const StyledQuote = styled(Quote)`
+const StyledQuote = styled(Quote) `
     background-color: rgba(235, 235, 235, .3);
     border-left: 5px solid;
     padding: 1.25em 1.5em;

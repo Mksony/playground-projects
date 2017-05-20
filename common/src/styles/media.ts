@@ -1,6 +1,7 @@
 import { css as styledCss } from 'styled-components';
 
 // FIXME: Workaround to make css() work with reduce;
+// tslint:disable:no-any
 const css = styledCss as (...args: any[]) => void;
 
 const sizes = {
@@ -17,19 +18,16 @@ export interface Media {
   xs: any;
 }
 
-/* eslint-disable */
 // iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce((accumulator, label) => {
-  // use em in breakpoints to work properly cross-browser and support users
-  // changing their browsers font-size: https://zellwk.com/blog/media-query-units/
-  /* eslint-disable no-param-reassign */
-  accumulator[label] = (...args: any[]) => css`
+const media = Object.keys(sizes).reduce(
+  (accumulator, label) => {
+    accumulator[label] = (...args: {}[]) => css`
     @media (min-width: ${sizes[label]}px) {
       ${css(...args)}
     }
   `;
-  return accumulator;
-}, {});
-/* eslint-disable */
+    return accumulator;
+  },
+  {});
 
 export default media as Media;

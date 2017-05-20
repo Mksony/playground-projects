@@ -44,4 +44,4 @@ storiesOf('InputGroup', module)
         placeholder="Enter Input"
       />
     );
-  })
+  });

@@ -2,6 +2,10 @@
   "name": "common",
   "version": "0.1.0",
   "private": true,
+  "bin": {
+    "tslint": "./bin/tslint",
+    "tsfmt": "./bin/tsfmt"
+  },
   "dependencies": {
     "@types/jest": "^19.2.2",
     "@types/node": "^7.0.14",
@@ -16,7 +20,10 @@
     "@types/node": "^7.0.16",
     "react-scripts-ts": "1.4.0",
     "rimraf": "^2.6.1",
-    "typescript": "^2.3.2"
+    "tslint": "^5.2.0",
+    "tslint-eslint-rules": "^4.0.0",
+    "typescript": "^2.3.2",
+    "typescript-formatter": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -27,6 +34,9 @@
     "compile": "npm run compile:ts",
     "clean": "rimraf ./lib/*",
     "compile:ts": "tsc -d -p ./compile.tsconfig.json --outDir ./lib",
+    "lint:fix": "tslint --project ./tsconfig.json --fix",
+    "format": "tsfmt -r",
+    "prettify": "npm run lint:fix && npm run format",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   }

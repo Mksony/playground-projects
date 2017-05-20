@@ -4,7 +4,7 @@ import Container from './Container';
 
 storiesOf('Container', module)
   .add('full height', () => (
-    <Container fullHeight bgColor="hotpink"/>
+    <Container fullHeight bgColor="hotpink" />
   ))
   .add('centered content', () => (
     <Container center fullHeight bgColor="hotpink">

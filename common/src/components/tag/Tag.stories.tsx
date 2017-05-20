@@ -10,4 +10,4 @@ storiesOf('Tag', module)
         color="primary"
       />
     );
-  })
+  });

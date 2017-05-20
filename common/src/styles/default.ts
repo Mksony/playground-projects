@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 import { colors, media } from './';
-
+// tslint:disable
 const addDefaultStyles = () => injectGlobal`
   html, body {
     max-width: 100%;

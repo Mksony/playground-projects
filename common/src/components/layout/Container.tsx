@@ -6,7 +6,7 @@ export interface ChildContainerProps {
   fluid?: boolean;
   textCenter?: boolean;
   maxWidth?: number;
-  className?: any;
+  className?: string;
 }
 
 export interface BaseContainerProps extends ChildContainerProps {
@@ -24,7 +24,7 @@ const ChildContainer: React.SFC<ChildContainerProps> =
   (props) => (<div className={props.className}>{props.children}</div>);
 
 /* eslint-disable no-confusing-arrow*/
-const StyledChildContainer = styled(ChildContainer)`
+const StyledChildContainer = styled(ChildContainer) `
   max-width: ${props => props.fluid ? '100%' : (`${props.maxWidth}px` || '1200px')};
   width: 100%;
   text-align: ${props => props.textCenter ? 'center' : 'left'};
@@ -36,12 +36,12 @@ const BaseContainer: React.SFC<BaseContainerProps> = ({
   maxWidth,
   children,
 }) => (
-  <div className={className}>
-    <StyledChildContainer fluid={fluid} textCenter={textCenter} maxWidth={maxWidth}>
-      {children}
-    </StyledChildContainer>
-  </div>
-);
+    <div className={className}>
+      <StyledChildContainer fluid={fluid} textCenter={textCenter} maxWidth={maxWidth}>
+        {children}
+      </StyledChildContainer>
+    </div>
+  );
 
 const getCenterStyles = (props: BaseContainerProps) => {
   const verticalCenter = 'align-items: center;';
@@ -66,12 +66,18 @@ const getCenterStyles = (props: BaseContainerProps) => {
   return '';
 };
 
-const StyledContainer = styled(BaseContainer)`
+const resolveBackground = ({ bgColor, backgroundUrl }: BaseContainerProps) => {
+  const backgroundColor = bgColor ? `linear-gradient(${bgColor}, ${bgColor})` : 'transparent';
+  const url = backgroundUrl ? `, url(${backgroundUrl}) no-repeat center / cover` : '';
+  return `background: ${backgroundColor}${url}`;
+};
+
+const StyledContainer = styled(BaseContainer) `
   position: relative;
   color: ${props => props.textColor ? props.textColor : 'inherit'};
   min-height: ${props => props.fullHeight ? '100vh' : 'initial'};
-  background: ${props => props.bgColor ? `linear-gradient(${props.bgColor}, ${props.bgColor})` : 'transparent'} ${props => props.backgroundUrl ? `, url(${props.backgroundUrl}) no-repeat center / cover` : ''};
   ${getCenterStyles}
+  ${resolveBackground}
   padding: 20px 10px;
   ${media.sm`
     padding: 30px 20px;

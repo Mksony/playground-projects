@@ -1,11 +1,13 @@
+import { Sizes } from 'types';
+
 const formElementFontSizes = {
   small: '.75rem',
   medium: '1.25rem',
   large: '1.5rem',
   default: '1rem',
-}
+};
 
-export function getFormElementDimensions(size: any) {
+export function getFormElementDimensions(size: Sizes) {
   return `
     font-size: ${formElementFontSizes[size]}
     line-height: 1.5;

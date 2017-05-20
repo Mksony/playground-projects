@@ -4,14 +4,14 @@ import Button from './Button';
 
 storiesOf('Button', module)
   .add('Default', () => (
-    <Button color="primary" label="Click me"/>
+    <Button color="primary" label="Click me" />
   ))
   .add('Available sizes', () => (
     <div>
-      <Button size="small" color="primary" label="Click me"/>
-      <Button size="default" color="primary" label="Click me"/>
-      <Button size="medium" color="primary" label="Click me"/>
-      <Button size="large" color="primary" label="Click me"/>
+      <Button size="small" color="primary" label="Click me" />
+      <Button size="default" color="primary" label="Click me" />
+      <Button size="medium" color="primary" label="Click me" />
+      <Button size="large" color="primary" label="Click me" />
     </div>
   ))
   .add('Available colors', () => (

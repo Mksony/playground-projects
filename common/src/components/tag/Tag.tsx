@@ -12,11 +12,11 @@ export interface TagProps {
 
 const resolveColor = ({ color }: TagProps) => (`
   background-color: ${colors[color]};
-`)
+`);
 
 const Tag: React.SFC<TagProps> = ({ text, className }) => (
   <span className={className} >{text}</span>
-)
+);
 
 const StyledTag = styled(Tag) `
     ${resolveColor}

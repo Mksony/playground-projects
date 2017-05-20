@@ -4,7 +4,7 @@ import Input from './Input';
 
 storiesOf('Input', module)
   .add('Default', () => (
-    <Input placeholder="Enter Input"/>
+    <Input placeholder="Enter Input" />
   ))
   .add('Available sizes', () => (
     <div>
@@ -21,4 +21,4 @@ storiesOf('Input', module)
         Click me
       </Input>
     </div>
-  ))
+  ));

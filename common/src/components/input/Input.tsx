@@ -7,8 +7,8 @@ import { getFormElementDimensions } from '../../styles';
 export interface InputProps {
   isValid?: boolean;
   size?: Sizes;
-  onBlur?: any;
-  onChange?: any;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   autoComplete?: string;
   autoFocus?: boolean;
   placeholder?: string;
@@ -20,14 +20,14 @@ class Input extends React.Component<InputProps, {}> {
 
   static defaultProps: InputProps = {
     type: 'text',
-  }
+  };
 
   constructor() {
     super();
     this.handleBlur = this.handleBlur.bind(this);
   }
 
-  handleBlur(e: React.FocusEvent<HTMLElement>) {
+  handleBlur(e: React.FocusEvent<HTMLInputElement>) {
     const { onBlur } = this.props;
     if (onBlur) {
       onBlur(e);
@@ -57,12 +57,13 @@ class Input extends React.Component<InputProps, {}> {
         placeholder={placeholder}
         className={className}
         type={type}
+        onChange={this.handleChange}
       />
-    )
+    );
   }
 }
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(Input) `
   background-color: white;
   border: 1px solid transparent;
   border-color: #dbdbdb;
@@ -71,7 +72,7 @@ const StyledInput = styled(Input)`
   display: inline-flex;
   font-size: 1rem;
   justify-content: flex-start;
-  ${props => getFormElementDimensions(props.size)}
+  ${props => getFormElementDimensions(props.size as Sizes)}
   max-width: 100%;
   width: 100%;
 `;

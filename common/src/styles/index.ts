@@ -4,4 +4,4 @@ export { default as sanitizeStyles } from './sanitize';
 export { default as addDefaultStyles } from './default';
 export { default as theme } from './theme';
 export { default as colors } from './colors';
-export {getFormElementDimensions} from './mixins';
+export { getFormElementDimensions } from './mixins';

@@ -11,4 +11,4 @@ storiesOf('Quote', module)
         tags={['literature', 'english', 'test']}
       />
     );
-  })
+  });
