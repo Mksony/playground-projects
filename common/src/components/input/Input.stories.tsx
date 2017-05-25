@@ -8,17 +8,9 @@ storiesOf('Input', module)
   ))
   .add('Available sizes', () => (
     <div>
-      <Input size="small" placeholder="Enter Input">
-        Click me
-      </Input>
-      <Input size="default" placeholder="Enter Input">
-        Click me
-      </Input>
-      <Input size="medium" placeholder="Enter Input">
-        Click me
-      </Input>
-      <Input size="large" placeholder="Enter Input">
-        Click me
-      </Input>
+      <Input size="small" placeholder="Enter Input" />
+      <Input size="default" placeholder="Enter Input" />
+      <Input size="medium" placeholder="Enter Input" />
+      <Input size="large" placeholder="Enter Input" />
     </div>
   ));
