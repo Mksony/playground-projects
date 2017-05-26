@@ -2,9 +2,29 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Sizes } from 'types';
 
-import { getFormElementDimensions } from '../../styles';
+import { getFormElementDimensions, getIconPadding, colors } from '../../styles';
+import { IonicIcon, LoadingIcon } from '../icon/Icon';
+
+const RightIcon = styled(IonicIcon) `
+    position: absolute;
+    top: 0;
+    right: 0;
+`;
+
+const LeftIcon = styled(IonicIcon) `
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
+const RightLoadingIcon = styled(LoadingIcon) `
+    position: absolute;
+    top: 0;
+    right: 0;
+`;
 
 export interface InputProps {
+  isLoading?: boolean;
   isValid?: boolean;
   size?: Sizes;
   onBlur?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
@@ -15,6 +35,8 @@ export interface InputProps {
   className?: string;
   type?: string; // TODO: add allowed types here
   value?: string;
+  iconLeft?: string;
+  iconRight?: string;
   [key: string]: any;
 }
 
@@ -46,12 +68,15 @@ class Input extends React.Component<InputProps, {}> {
       onChange,
       isValid,
       size,
-      ref,
+      iconLeft,
+      iconRight,
+      isLoading,
       ...otherProps,
     } = this.props;
 
     return (
       <div className={className}>
+        {iconLeft && <LeftIcon name={iconLeft as string} />}
         <input
           autoComplete={autoComplete}
           autoFocus={autoFocus}
@@ -61,12 +86,15 @@ class Input extends React.Component<InputProps, {}> {
           onChange={onChange}
           {...otherProps}
         />
+        {iconRight && !isLoading && <RightIcon name={iconRight as string} />}
+        {isLoading && <RightLoadingIcon />}
       </div>
     );
   }
 }
 
 const StyledInput = styled(Input) `
+  position: relative;
   input {
     background-color: white;
     border: 1px solid transparent;
@@ -77,11 +105,17 @@ const StyledInput = styled(Input) `
     font-size: 1rem;
     justify-content: flex-start;
     ${props => getFormElementDimensions(props.size as Sizes)}
+    ${({ iconLeft, iconRight }) => getIconPadding(iconLeft, iconRight)}
     max-width: 100%;
     width: 100%;
     &:focus {
       outline: none;
     }
+  }
+  i {
+    font-size: 1rem;
+    color: ${colors.grey.default}
+    ${props => getFormElementDimensions(props.size as Sizes)}
   }
 `;
 

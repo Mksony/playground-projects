@@ -2,44 +2,42 @@ import * as React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import Datalist from './Datalist';
 
-// tslint:disable
-// Imagine you have a list of languages that you'd like to autosuggest.
 const source = [
   {
-    "title": "Little - Denesik",
-    "description": "Reduced attitude-oriented pricing structure",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/judzhin_miles/128.jpg",
-    "price": "$75.41"
+    'title': 'Little - Denesik',
+    'description': 'Reduced attitude-oriented pricing structure',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/judzhin_miles/128.jpg',
+    'price': '$75.41',
   },
   {
-    "title": "Deckow Inc",
-    "description": "Pre-emptive responsive extranet",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/macxim/128.jpg",
-    "price": "$13.99"
+    'title': 'Deckow Inc',
+    'description': 'Pre-emptive responsive extranet',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/macxim/128.jpg',
+    'price': '$13.99',
   },
   {
-    "title": "Wiegand, Volkman and Wolff",
-    "description": "Enterprise-wide optimal software",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/oskamaya/128.jpg",
-    "price": "$97.39"
+    'title': 'Wiegand, Volkman and Wolff',
+    'description': 'Enterprise-wide optimal software',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/oskamaya/128.jpg',
+    'price': '$97.39',
   },
   {
-    "title": "Anderson LLC",
-    "description": "Organic tangible function",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg",
-    "price": "$81.28"
+    'title': 'Anderson LLC',
+    'description': 'Organic tangible function',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
+    'price': '$81.28',
   },
   {
-    "title": "AndOne LLC",
-    "description": "Organic tangible function",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg",
-    "price": "$81.28"
+    'title': 'AndOne LLC',
+    'description': 'Organic tangible function',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
+    'price': '$81.28',
   },
   {
-    "title": "Spinka - Bartell",
-    "description": "Digitized optimal core",
-    "image": "https://s3.amazonaws.com/uifaces/faces/twitter/craigelimeliah/128.jpg",
-    "price": "$40.57"
+    'title': 'Spinka - Bartell',
+    'description': 'Digitized optimal core',
+    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/craigelimeliah/128.jpg',
+    'price': '$40.57',
   },
 ];
 
@@ -51,6 +49,9 @@ interface SampleSearchState {
 class SampleSearch extends React.Component<any, SampleSearchState> {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
+    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.state = {
       suggestions: [],
       value: '',
@@ -75,12 +76,12 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
     this.setState({
       suggestions: this.getSuggestions(value),
     });
-  };
+  }
   onSuggestionsClearRequested() {
     this.setState({
-      suggestions: []
+      suggestions: [],
     });
-  };
+  }
 
   render() {
     const {
@@ -92,11 +93,12 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
         value={value}
         suggestions={suggestions}
         getSuggestionValue={(suggestion) => suggestion.title as string}
-        onChange={this.handleChange.bind(this)}
+        onChange={this.handleChange}
         renderSuggestion={(suggestion) => <div>{suggestion.title}</div>}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested.bind(this)}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested.bind(this)}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         size="large"
+        isLoading
       />
     );
   }

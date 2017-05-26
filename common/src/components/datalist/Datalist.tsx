@@ -18,7 +18,7 @@ const InputWrapper: React.SFC<InputWrapperProps> = ({
 }) => (<div className={className}>{children}</div>);
 
 const StyledWrapper = styled(InputWrapper) `
-  .react-autosuggest__input--open {
+  .react-autosuggest__input--open input {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
   }
@@ -42,6 +42,7 @@ const StyledWrapper = styled(InputWrapper) `
 `;
 
 export interface SearchProps {
+  icon?: string;
   getSuggestionValue: (suggestion: any) => string;
   renderSuggestion: (suggestion: any) => React.ReactElement<any>;
   renderSuggestionsContainer?: ({ containerProps, children, query }: any) => React.ReactElement<any>;
@@ -56,14 +57,20 @@ export interface SearchProps {
   isLoading?: boolean;
 }
 
-const renderInputComponent = ({ size }: SearchProps) => (inputProps: any) => {
-  return (
-    <Input
-      size={size}
-      {...inputProps}
-    />
-  );
-};
+const renderInputComponent = ({
+  size,
+  icon,
+  isLoading,
+}: SearchProps) => (inputProps: any) => {
+    return (
+      <Input
+        size={size}
+        iconRight={icon}
+        isLoading={isLoading}
+        {...inputProps}
+      />
+    );
+  };
 
 class Search extends React.Component<SearchProps, null> {
 
@@ -71,6 +78,7 @@ class Search extends React.Component<SearchProps, null> {
     placeholder: 'Search...',
     type: 'search',
     size: 'default',
+    icon: 'search',
   };
 
   constructor() {

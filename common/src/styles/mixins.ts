@@ -18,3 +18,15 @@ export function getFormElementDimensions(size: Sizes) {
     padding-top: calc(0.375em - 1px);
   `;
 }
+
+export function getIconPadding(iconLeft: string | undefined, iconRight: string | undefined): string {
+  let iconPadding = '';
+  const PADDING = '2.25em';
+  if (iconLeft) {
+    iconPadding += `padding-left: ${PADDING};`;
+  }
+  if (iconRight) {
+    iconPadding += `padding-right: ${PADDING};`;
+  }
+  return iconPadding;
+}
