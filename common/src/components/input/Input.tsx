@@ -3,9 +3,15 @@ import styled from 'styled-components';
 import { Sizes } from 'types';
 
 import { getFormElementDimensions, getIconPadding, colors } from '../../styles';
-import { IonicIcon, LoadingIcon } from '../icon/Icon';
+import { IonicIcon, LoadingIcon, CloseIcon } from '../icon/Icon';
 
 const RightIcon = styled(IonicIcon) `
+    position: absolute;
+    top: 0;
+    right: 0;
+`;
+
+const RightCloseIcon = styled(CloseIcon) `
     position: absolute;
     top: 0;
     right: 0;
@@ -17,10 +23,10 @@ const LeftIcon = styled(IonicIcon) `
     left: 0;
 `;
 
-const RightLoadingIcon = styled(LoadingIcon) `
+const LeftLoadingIcon = styled(LoadingIcon) `
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
 `;
 
 export interface InputProps {
@@ -29,6 +35,7 @@ export interface InputProps {
   size?: Sizes;
   onBlur?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
   onChange?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.SyntheticEvent<HTMLInputElement>) => void;
   autoComplete?: string;
   autoFocus?: boolean;
   placeholder?: string;
@@ -37,25 +44,103 @@ export interface InputProps {
   value?: string;
   iconLeft?: string;
   iconRight?: string;
+  clearable?: boolean;
+  onClearClick?: (e?: React.SyntheticEvent<HTMLElement>) => void;
   [key: string]: any;
 }
 
-class Input extends React.Component<InputProps, {}> {
+class Input extends React.Component<InputProps, any> {
 
   static defaultProps: InputProps = {
     type: 'text',
   };
 
-  constructor() {
-    super();
+  input: HTMLInputElement;
+
+  constructor(props: InputProps) {
+    super(props);
+    const { value, autoFocus } = props;
+    this.state = {
+      value: value || '',
+      isFocused: Boolean(autoFocus),
+    };
+    this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleClearClick = this.handleClearClick.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps: InputProps) {
+    const { value: currentValue } = this.props;
+    const { value: nextValue } = nextProps;
+    if (currentValue !== nextValue) {
+      this.setState({
+        value: nextValue,
+      });
+    }
+  }
+
+  handleChange(e: React.SyntheticEvent<HTMLInputElement>) {
+    this.setState({
+      value: e.currentTarget.value,
+    });
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   handleBlur(e: React.SyntheticEvent<HTMLInputElement>) {
     const { onBlur } = this.props;
+    this.setState({
+      isFocused: false,
+    });
     if (onBlur) {
       onBlur(e);
     }
+  }
+
+  handleFocus(e: React.SyntheticEvent<HTMLInputElement>) {
+    const { onFocus } = this.props;
+    this.setState({
+      isFocused: true,
+    });
+    if (onFocus) {
+      onFocus(e);
+    }
+  }
+
+  handleClearClick(e?: React.SyntheticEvent<HTMLElement>) {
+    const { onClearClick } = this.props;
+    this.setState({
+      value: '',
+    });
+    this.input.focus();
+    if (onClearClick) {
+      onClearClick(e);
+    }
+  }
+
+  getLeftIcon() {
+    const { isLoading, iconLeft } = this.props;
+    if (isLoading) {
+      return <LeftLoadingIcon />;
+    } else if (iconLeft) {
+      return <LeftIcon name={iconLeft} />;
+    }
+    return null;
+  }
+
+  getRightIcon() {
+    const { clearable, iconRight } = this.props;
+    const { isFocused, value } = this.state;
+    const hasValue = value.length > 0;
+    if (clearable && isFocused && hasValue) {
+      return <RightCloseIcon onClick={this.handleClearClick} />;
+    } else if (iconRight) {
+      return <RightIcon name={iconRight} />;
+    }
+    return null;
   }
 
   render() {
@@ -71,23 +156,29 @@ class Input extends React.Component<InputProps, {}> {
       iconLeft,
       iconRight,
       isLoading,
+      clearable,
+      onClearClick,
       ...otherProps,
     } = this.props;
 
+    const { value } = this.state;
+
     return (
       <div className={className}>
-        {iconLeft && <LeftIcon name={iconLeft as string} />}
+        {this.getLeftIcon()}
         <input
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           onBlur={this.handleBlur}
           placeholder={placeholder}
           type={type}
-          onChange={onChange}
+          onChange={this.handleChange}
           {...otherProps}
+          ref={(input) => this.input = input}
+          onFocus={this.handleFocus}
+          value={value}
         />
-        {iconRight && !isLoading && <RightIcon name={iconRight as string} />}
-        {isLoading && <RightLoadingIcon />}
+        {this.getRightIcon()}
       </div>
     );
   }
@@ -105,7 +196,19 @@ const StyledInput = styled(Input) `
     font-size: 1rem;
     justify-content: flex-start;
     ${props => getFormElementDimensions(props.size as Sizes)}
-    ${({ iconLeft, iconRight }) => getIconPadding(iconLeft, iconRight)}
+    ${({
+      iconLeft,
+    iconRight,
+    isLoading: loadingIcon,
+    clearable: clearIcon,
+    }) =>
+    getIconPadding({
+      iconLeft,
+      iconRight,
+      loadingIcon,
+      clearIcon,
+    })
+  }
     max-width: 100%;
     width: 100%;
     &:focus {

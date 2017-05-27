@@ -12,7 +12,6 @@ interface InputWrapperProps {
 }
 
 const InputWrapper: React.SFC<InputWrapperProps> = ({
-  size,
   children,
   className,
 }) => (<div className={className}>{children}</div>);
@@ -24,6 +23,7 @@ const StyledWrapper = styled(InputWrapper) `
   }
   .react-autosuggest__suggestion {
     ${props => getFormElementDimensions(props.size as Sizes)}
+    cursor: pointer;
     &:hover {
       background-color: ${colors.grey.extraLight};
     }
@@ -44,12 +44,19 @@ const StyledWrapper = styled(InputWrapper) `
 export interface SearchProps {
   icon?: string;
   getSuggestionValue: (suggestion: any) => string;
+  onSuggestionSelected?: (
+    e: React.SyntheticEvent<HTMLElement>,
+    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }: any)
+    => void;
   renderSuggestion: (suggestion: any) => React.ReactElement<any>;
-  renderSuggestionsContainer?: ({ containerProps, children, query }: any) => React.ReactElement<any>;
+  renderSuggestionsContainer?: (
+    { containerProps, children, query }: any,
+  ) => React.ReactElement<any>;
   suggestions: any[];
   onChange: (e: React.SyntheticEvent<HTMLInputElement>, { newValue }: { newValue: string; }) => void;
   onSuggestionsFetchRequested: ({ value }: { value: string }) => void;
   onSuggestionsClearRequested?: () => void;
+  handleClear: () => void;
   placeholder?: string;
   value: string;
   type?: string;
@@ -60,13 +67,14 @@ export interface SearchProps {
 const renderInputComponent = ({
   size,
   icon,
-  isLoading,
+  handleClear,
 }: SearchProps) => (inputProps: any) => {
     return (
       <Input
         size={size}
-        iconRight={icon}
-        isLoading={isLoading}
+        iconLeft={icon}
+        clearable
+        onClearClick={handleClear}
         {...inputProps}
       />
     );
@@ -81,26 +89,6 @@ class Search extends React.Component<SearchProps, null> {
     icon: 'search',
   };
 
-  constructor() {
-    super();
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
-  }
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  onSuggestionsFetchRequested({ value }: { value: string; }) {
-    const { onSuggestionsFetchRequested } = this.props;
-    onSuggestionsFetchRequested({ value });
-  }
-
-  // Autosuggest will call this function every time you need to clear suggestions.
-  onSuggestionsClearRequested() {
-    const { onSuggestionsClearRequested } = this.props;
-    if (onSuggestionsClearRequested) {
-      onSuggestionsClearRequested();
-    }
-  }
-
   render() {
     const {
       value,
@@ -108,6 +96,9 @@ class Search extends React.Component<SearchProps, null> {
       onChange,
       placeholder,
       getSuggestionValue,
+      onSuggestionsClearRequested,
+      onSuggestionsFetchRequested,
+      onSuggestionSelected,
       renderSuggestion,
       type,
       size,
@@ -124,8 +115,9 @@ class Search extends React.Component<SearchProps, null> {
       <StyledWrapper size={size as Sizes}>
         <Autosuggest
           suggestions={suggestions}
-          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          onSuggestionSelected={onSuggestionSelected}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}

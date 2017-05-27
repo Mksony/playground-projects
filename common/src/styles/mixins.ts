@@ -19,13 +19,25 @@ export function getFormElementDimensions(size: Sizes) {
   `;
 }
 
-export function getIconPadding(iconLeft: string | undefined, iconRight: string | undefined): string {
+interface IconOptions {
+  iconLeft?: string;
+  iconRight?: string;
+  loadingIcon?: boolean;
+  clearIcon?: boolean;
+}
+
+export function getIconPadding({
+  iconLeft,
+  iconRight,
+  loadingIcon,
+  clearIcon,
+}: IconOptions): string {
   let iconPadding = '';
   const PADDING = '2.25em';
-  if (iconLeft) {
+  if (iconLeft || loadingIcon) {
     iconPadding += `padding-left: ${PADDING};`;
   }
-  if (iconRight) {
+  if (iconRight || clearIcon) {
     iconPadding += `padding-right: ${PADDING};`;
   }
   return iconPadding;

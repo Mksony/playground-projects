@@ -50,6 +50,7 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
     this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
     this.state = {
@@ -77,9 +78,16 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
       suggestions: this.getSuggestions(value),
     });
   }
+
   onSuggestionsClearRequested() {
     this.setState({
       suggestions: [],
+    });
+  }
+
+  handleClear() {
+    this.setState({
+      value: '',
     });
   }
 
@@ -97,8 +105,8 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
         renderSuggestion={(suggestion) => <div>{suggestion.title}</div>}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        handleClear={this.handleClear}
         size="large"
-        isLoading
       />
     );
   }

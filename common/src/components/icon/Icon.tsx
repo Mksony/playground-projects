@@ -1,6 +1,8 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+type ClickHandler = (e: React.SyntheticEvent<HTMLElement>) => void;
+
 interface AvailableIconSets {
   'Material Design Icons': string;
   FontAwesome: string;
@@ -23,21 +25,27 @@ interface BaseIconProps {
 interface IconProps {
   name: string;
   className?: string;
+  onClick?: ClickHandler;
 }
 
-const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, className }) => {
+const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, className, onClick }) => {
   const iconSetFolder = iconSets[iconSet];
   const ReactIcon = require(`react-icons/lib/${iconSetFolder}/${name}`);
   return (
-    <i className={className} >
+    <i className={className} onClick={onClick}>
       <ReactIcon />
     </i>
   );
 };
 
-export const IonicIcon: React.SFC<IconProps> = ({ name, className }) => {
+export const IonicIcon: React.SFC<IconProps> = ({ name, className, onClick }) => {
   return (
-    <BaseIcon iconSet="Ionicons" name={name} className={className} />
+    <BaseIcon
+      iconSet="Ionicons"
+      name={name}
+      className={className}
+      onClick={onClick}
+    />
   );
 };
 
@@ -45,7 +53,6 @@ const rotate360 = keyframes`
 	from {
 		transform: rotate(0deg);
 	}
-
 	to {
 		transform: rotate(360deg);
 	}
@@ -54,6 +61,21 @@ const rotate360 = keyframes`
 const BaseLoadingIcon: React.SFC<{ className?: string; }> = ({
   className,
 }) => (<IonicIcon name="load-d" className={className} />);
+
+const BaseCloseIcon: React.SFC<{ className?: string; onClick: ClickHandler }> = ({
+  className,
+  onClick,
+}) => (
+    <IonicIcon
+      name="close-circled"
+      className={className}
+      onClick={onClick}
+    />
+  );
+
+export const CloseIcon = styled(BaseCloseIcon) `
+  cursor: pointer;
+`;
 
 export const LoadingIcon = styled(BaseLoadingIcon) `
   display: inline-flex;
