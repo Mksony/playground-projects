@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-type ClickHandler = (e: React.SyntheticEvent<HTMLElement>) => void;
+export type ClickHandler = (e: React.SyntheticEvent<HTMLElement>) => void;
 
 interface AvailableIconSets {
   'Material Design Icons': string;
@@ -22,7 +22,7 @@ interface BaseIconProps {
   iconSet: keyof AvailableIconSets;
 }
 
-interface IconProps {
+export interface IconProps {
   name: string;
   className?: string;
   onClick?: ClickHandler;

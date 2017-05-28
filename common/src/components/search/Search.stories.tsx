@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import Datalist from './Datalist';
+import Search from './Search';
 
 const source = [
   {
@@ -97,7 +97,7 @@ class SampleSearch extends React.Component<{}, SampleSearchState> {
       value,
     } = this.state;
     return (
-      <Datalist
+      <Search
         value={value}
         suggestions={suggestions}
         getSuggestionValue={(suggestion) => suggestion.title as string}
@@ -114,7 +114,7 @@ class SampleSearch extends React.Component<{}, SampleSearchState> {
 
 }
 
-storiesOf('Datalist', module)
+storiesOf('Search', module)
   .add('Default', () => {
     return (
       <SampleSearch />

@@ -19,7 +19,7 @@ export function getFormElementDimensions(size: Sizes) {
   `;
 }
 
-interface IconOptions {
+export interface IconOptions {
   iconLeft?: string;
   iconRight?: string;
   loadingIcon?: boolean;
