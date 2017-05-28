@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf, action } from '@kadira/storybook';
 import Datalist from './Datalist';
 
 const source = [
@@ -46,7 +46,7 @@ interface SampleSearchState {
   value: string;
 }
 
-class SampleSearch extends React.Component<any, SampleSearchState> {
+class SampleSearch extends React.Component<{}, SampleSearchState> {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
@@ -106,6 +106,7 @@ class SampleSearch extends React.Component<any, SampleSearchState> {
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         handleClear={this.handleClear}
+        onSuggestionSelected={action('Select Suggestion')}
         size="large"
       />
     );

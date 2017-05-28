@@ -17,6 +17,9 @@ const InputWrapper: React.SFC<InputWrapperProps> = ({
 }) => (<div className={className}>{children}</div>);
 
 const StyledWrapper = styled(InputWrapper) `
+  .react-autosuggest__container {
+    position: relative;
+  }
   .react-autosuggest__input--open input {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -32,12 +35,15 @@ const StyledWrapper = styled(InputWrapper) `
     background-color: ${colors.grey.light};
   }
   .react-autosuggest__suggestions-container--open {
+    position: absolute;
     border: 1px solid transparent;
     border-radius: 3px;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     border-top: 0;
     border-color: ${colors.grey.light};
+    background-color: white;
+    width: 100%;
   }
 `;
 

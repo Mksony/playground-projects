@@ -49,7 +49,12 @@ export interface InputProps {
   [key: string]: any;
 }
 
-class Input extends React.Component<InputProps, any> {
+interface InputState {
+  value: string;
+  isFocused: boolean;
+}
+
+class Input extends React.Component<InputProps, InputState> {
 
   static defaultProps: InputProps = {
     type: 'text',
@@ -75,7 +80,7 @@ class Input extends React.Component<InputProps, any> {
     const { value: nextValue } = nextProps;
     if (currentValue !== nextValue) {
       this.setState({
-        value: nextValue,
+        value: nextValue as string,
       });
     }
   }
@@ -197,7 +202,7 @@ const StyledInput = styled(Input) `
     justify-content: flex-start;
     ${props => getFormElementDimensions(props.size as Sizes)}
     ${({
-      iconLeft,
+    iconLeft,
     iconRight,
     isLoading: loadingIcon,
     clearable: clearIcon,

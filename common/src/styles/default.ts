@@ -12,6 +12,7 @@ const addDefaultStyles = () => injectGlobal`
     color: ${colors.grey.dark};
     overflow-y: scroll; /* has to be scroll, not auto */
     -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
   }
 
   li, p, a {
