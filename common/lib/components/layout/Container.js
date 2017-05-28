@@ -31,10 +31,14 @@ var resolveBackground = function (_a) {
     var url = backgroundUrl ? ", url(" + backgroundUrl + ") no-repeat center / cover" : '';
     return "background: " + backgroundColor + url;
 };
-var StyledContainer = (_b = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ", "\n  ", "\n  ", "\n"], _b.raw = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ",
+var StyledContainer = (_b = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ", "\n  ", "\n  ", "\n  ", "\n"], _b.raw = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ",
     "\n  ",
     "\n  ",
-    "\n"], styled_components_1.default(BaseContainer)(_b, function (props) { return props.textColor ? props.textColor : 'inherit'; }, function (props) { return props.fullHeight ? '100vh' : 'initial'; }, getCenterStyles, resolveBackground, (_c = ["\n    padding: 30px 20px;\n  "], _c.raw = ["\n    padding: 30px 20px;\n  "], styles_1.media.sm(_c)), (_d = ["\n    padding: 50px 30px;\n  "], _d.raw = ["\n    padding: 50px 30px;\n  "], styles_1.media.md(_d)), (_e = ["\n    padding: 70px 40px;\n  "], _e.raw = ["\n    padding: 70px 40px;\n  "], styles_1.media.lg(_e))));
+    "\n  ", "\n"], styled_components_1.default(BaseContainer)(_b, function (props) { return props.textColor ? props.textColor : 'inherit'; }, function (props) { return props.fullHeight ? '100vh' : 'initial'; }, getCenterStyles, resolveBackground, (_c = ["\n    padding: 30px 20px;\n  "], _c.raw = ["\n    padding: 30px 20px;\n  "], styles_1.media.sm(_c)), (_d = ["\n    padding: 50px 30px;\n  "], _d.raw = ["\n    padding: 50px 30px;\n  "], styles_1.media.md(_d)), (_e = ["\n    padding: 70px 40px;\n  "], _e.raw = ["\n    padding: 70px 40px;\n  "], styles_1.media.lg(_e)), function (_a) {
+    var compact = _a.compact;
+    return compact ? (_b = ["padding: 0px !important"], _b.raw = ["padding: 0px !important"], styled_components_1.css(_b)) : '';
+    var _b;
+}));
 exports.default = StyledContainer;
 var _a, _b, _c, _d, _e;
 //# sourceMappingURL=Container.js.map

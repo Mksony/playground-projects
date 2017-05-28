@@ -15,6 +15,7 @@ export interface BaseContainerProps extends ChildContainerProps {
     textColor?: string;
     bgColor?: string;
     backgroundUrl?: string;
+    compact?: boolean;
 }
 declare const StyledContainer: React.ComponentClass<BaseContainerProps & {
     theme?: any;

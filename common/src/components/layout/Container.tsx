@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { media } from '../../styles';
 
 export interface ChildContainerProps {
@@ -18,6 +18,7 @@ export interface BaseContainerProps extends ChildContainerProps {
   textColor?: string;
   bgColor?: string;
   backgroundUrl?: string;
+  compact?: boolean;
 }
 
 const ChildContainer: React.SFC<ChildContainerProps> =
@@ -88,6 +89,7 @@ const StyledContainer = styled(BaseContainer) `
   ${media.lg`
     padding: 70px 40px;
   `}
+  ${({ compact }) => compact ? css`padding: 0px !important` : ''}
 `;
 
 export default StyledContainer;

@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
 var media_1 = require("./media");
 exports.media = media_1.default;
@@ -12,6 +15,5 @@ var theme_1 = require("./theme");
 exports.theme = theme_1.default;
 var colors_1 = require("./colors");
 exports.colors = colors_1.default;
-var mixins_1 = require("./mixins");
-exports.getFormElementDimensions = mixins_1.getFormElementDimensions;
+__export(require("./mixins"));
 //# sourceMappingURL=index.js.map

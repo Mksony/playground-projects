@@ -10,4 +10,14 @@ storiesOf('Container', module)
     <Container center fullHeight bgColor="hotpink">
       <h1>Headline</h1>
     </Container>
+  ))
+  .add('no padding', () => (
+    <Container compact center fullHeight bgColor="hotpink">
+      <Container center fullHeight bgColor="hotpink">
+        <h1>Headline</h1>
+      </Container>
+      <Container center fullHeight bgColor="hotpink">
+        <h1>Headline</h1>
+      </Container>
+    </Container>
   ));
