@@ -4,7 +4,6 @@ var React = require("react");
 var styled_components_1 = require("styled-components");
 var styles_1 = require("../../styles");
 var ChildContainer = function (props) { return (React.createElement("div", { className: props.className }, props.children)); };
-/* eslint-disable no-confusing-arrow*/
 var StyledChildContainer = (_a = ["\n  max-width: ", ";\n  width: 100%;\n  text-align: ", ";\n"], _a.raw = ["\n  max-width: ", ";\n  width: 100%;\n  text-align: ", ";\n"], styled_components_1.default(ChildContainer)(_a, function (props) { return props.fluid ? '100%' : (props.maxWidth + "px" || '1200px'); }, function (props) { return props.textCenter ? 'center' : 'left'; }));
 var BaseContainer = function (_a) {
     var className = _a.className, fluid = _a.fluid, textCenter = _a.textCenter, maxWidth = _a.maxWidth, children = _a.children;
@@ -27,9 +26,15 @@ var getCenterStyles = function (props) {
 };
 var resolveBackground = function (_a) {
     var bgColor = _a.bgColor, backgroundUrl = _a.backgroundUrl;
-    var backgroundColor = bgColor ? "linear-gradient(" + bgColor + ", " + bgColor + ")" : 'transparent';
-    var url = backgroundUrl ? ", url(" + backgroundUrl + ") no-repeat center / cover" : '';
-    return "background: " + backgroundColor + url;
+    var backgroundColor = 'linear-gradient(transparent, transparent)';
+    var url = '';
+    if (bgColor) {
+        backgroundColor = "linear-gradient(" + bgColor + ", " + bgColor + ")";
+    }
+    if (backgroundUrl) {
+        url = ", url(" + backgroundUrl + ") no-repeat center / cover";
+    }
+    return "background: " + backgroundColor + url + ";";
 };
 var StyledContainer = (_b = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ", "\n  ", "\n  ", "\n  ", "\n"], _b.raw = ["\n  position: relative;\n  color: ", ";\n  min-height: ", ";\n  ", "\n  ", "\n  padding: 20px 10px;\n  ",
     "\n  ",

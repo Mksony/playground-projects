@@ -24,7 +24,6 @@ export interface BaseContainerProps extends ChildContainerProps {
 const ChildContainer: React.SFC<ChildContainerProps> =
   (props) => (<div className={props.className}>{props.children}</div>);
 
-/* eslint-disable no-confusing-arrow*/
 const StyledChildContainer = styled(ChildContainer) `
   max-width: ${props => props.fluid ? '100%' : (`${props.maxWidth}px` || '1200px')};
   width: 100%;
@@ -68,9 +67,15 @@ const getCenterStyles = (props: BaseContainerProps) => {
 };
 
 const resolveBackground = ({ bgColor, backgroundUrl }: BaseContainerProps) => {
-  const backgroundColor = bgColor ? `linear-gradient(${bgColor}, ${bgColor})` : 'transparent';
-  const url = backgroundUrl ? `, url(${backgroundUrl}) no-repeat center / cover` : '';
-  return `background: ${backgroundColor}${url}`;
+  let backgroundColor = 'linear-gradient(transparent, transparent)';
+  let url = '';
+  if (bgColor) {
+    backgroundColor = `linear-gradient(${bgColor}, ${bgColor})`;
+  }
+  if (backgroundUrl) {
+    url = `, url(${backgroundUrl}) no-repeat center / cover`;
+  }
+  return `background: ${backgroundColor}${url};`;
 };
 
 const StyledContainer = styled(BaseContainer) `
