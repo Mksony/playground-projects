@@ -222,7 +222,7 @@ const StyledInput = styled(Input) `
   }
   i {
     font-size: 1rem;
-    color: ${colors.grey.default}
+    color: ${colors.grey.default};
     ${props => getFormElementDimensions(props.size as Sizes)}
   }
 `;

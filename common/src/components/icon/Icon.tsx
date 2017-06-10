@@ -38,9 +38,15 @@ const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, classNa
   );
 };
 
+const StyledBaseIcon = styled(BaseIcon) `
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const IonicIcon: React.SFC<IconProps> = ({ name, className, onClick }) => {
   return (
-    <BaseIcon
+    <StyledBaseIcon
       iconSet="Ionicons"
       name={name}
       className={className}
@@ -78,8 +84,5 @@ export const CloseIcon = styled(BaseCloseIcon) `
 `;
 
 export const LoadingIcon = styled(BaseLoadingIcon) `
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   animation: ${rotate360} 1.25s linear infinite;
 `;

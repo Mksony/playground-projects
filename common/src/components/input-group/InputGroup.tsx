@@ -36,11 +36,14 @@ const InputGroup: React.SFC<InputGroupProps> = ({
 
 const StyledInputGroup = styled(InputGroup) `
   display: flex;
+  & > div {
+    flex: 1;
+  }
   & > button {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  & > input {
+  & input {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
   }

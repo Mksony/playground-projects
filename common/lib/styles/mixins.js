@@ -7,7 +7,7 @@ var formElementFontSizes = {
     default: '1rem',
 };
 function getFormElementDimensions(size) {
-    return "\n    font-size: " + formElementFontSizes[size] + "\n    line-height: 1.5;\n    height: 2.25em;\n    padding-bottom: calc(0.375em - 1px);\n    padding-left: calc(0.625em - 1px);\n    padding-right: calc(0.625em - 1px);\n    padding-top: calc(0.375em - 1px);\n  ";
+    return "\n    font-size: " + formElementFontSizes[size] + ";\n    line-height: 1.5;\n    height: 2.25em;\n    padding-bottom: calc(0.375em - 1px);\n    padding-left: calc(0.625em - 1px);\n    padding-right: calc(0.625em - 1px);\n    padding-top: calc(0.375em - 1px);\n  ";
 }
 exports.getFormElementDimensions = getFormElementDimensions;
 function getIconPadding(_a) {

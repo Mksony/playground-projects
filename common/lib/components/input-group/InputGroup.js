@@ -18,7 +18,7 @@ var InputGroup = function (_a) {
         React.createElement(Input_1.default, __assign({}, inputProps, { size: size, placeholder: placeholder })),
         React.createElement(Button_1.default, __assign({ color: "primary" }, buttonProps, { size: size, label: buttonLabel, type: "submit" }))));
 };
-var StyledInputGroup = (_a = ["\n  display: flex;\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & > input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], _a.raw = ["\n  display: flex;\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & > input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], styled_components_1.default(InputGroup)(_a));
+var StyledInputGroup = (_a = ["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], _a.raw = ["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], styled_components_1.default(InputGroup)(_a));
 exports.default = StyledInputGroup;
 var _a;
 //# sourceMappingURL=InputGroup.js.map

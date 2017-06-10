@@ -9,7 +9,7 @@ const formElementFontSizes = {
 
 export function getFormElementDimensions(size: Sizes) {
   return `
-    font-size: ${formElementFontSizes[size]}
+    font-size: ${formElementFontSizes[size]};
     line-height: 1.5;
     height: 2.25em;
     padding-bottom: calc(0.375em - 1px);
