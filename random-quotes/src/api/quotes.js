@@ -1,6 +1,6 @@
 import jsonp from 'jsonp';
-import striptags from 'striptags';
-import {AllHtmlEntities as Entities} from 'html-entities';
+
+import { sanitizeObject } from './utils/sanitize';
 /*
 Sample Initial Response
 ID: 1816
@@ -10,17 +10,6 @@ title: "Jordan Manigo"
 TODO: This whole construct needs a refactor,
 better proxy api response through own server and get rid of this ugly jsonp XSS thing
 */
-const entities = new Entities();
-const sanitizeString = (input) => {
-  if (typeof input === 'string') {
-    return entities.decode(striptags(input))
-  }
-  return input;
-};
-const sanitizeResponse = (response) => Object.keys(response).reduce((prev, curr) => {
-  prev[curr] = sanitizeString(response[curr]);
-  return prev;
-}, {})
 
 const POST_URL = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
 export const getRandomQuote = () => new Promise((resolve, reject) => {
@@ -29,7 +18,7 @@ export const getRandomQuote = () => new Promise((resolve, reject) => {
       reject(err);
     } else {
       const [quote] = data;
-      resolve(sanitizeResponse(quote));
+      resolve(sanitizeObject(quote));
     }
   });
 });
