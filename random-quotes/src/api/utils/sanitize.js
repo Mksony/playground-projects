@@ -11,4 +11,4 @@ export const sanitizeString = (input) => {
 export const sanitizeObject = (response) => Object.keys(response).reduce((prev, curr) => {
   prev[curr] = sanitizeString(response[curr]);
   return prev;
-}, {})
+}, {});
