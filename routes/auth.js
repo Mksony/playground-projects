@@ -10,6 +10,14 @@ router.post('/login', (req, res) => {
   res.send('Welcome to the app');
 });
 
+router.post('/register', (req, res) => {
+  res.send('User created');
+});
+
+router.get('/logout', (req, res) => {
+  res.send('User logged out');
+});
+
 module.exports = {
-  userRouter: router,
+  authRouter: router,
 };

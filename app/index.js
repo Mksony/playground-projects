@@ -1,10 +1,10 @@
 const express = require('express');
 
-const { userRouter } = require('../routes/user');
+const { authRouter } = require('../routes/auth');
 
 const app = express();
 
-app.use('/user', userRouter);
+app.use('/auth', authRouter);
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
