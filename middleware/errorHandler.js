@@ -1,17 +1,42 @@
-/* TODO: Add handling for production and development
-  * Dont leak stacktrace in production
-  * Add errorlog
-  * Add pretty error
-*/
+const PrettyError = require('pretty-error');
 
-module.exports = (err, req, res, next) => { // eslint-disable-line no-unused-vars
+const pe = new PrettyError();
+const isProduction = process.env.NODE_ENV === 'production';
+pe.skipNodeFiles();
+pe.skipPackage('express', 'morgan', 'winston');
+
+function errorLogger(err, req, res, next) {
+  if (isProduction) {
+    // TODO: Add logging to /var/log/node/error.log here
+  } else {
+    console.log(pe.render(err)); // eslint-disable-line no-console
+  }
+  next(err);
+}
+
+function errrorHandler(err, req, res, next) { // eslint-disable-line no-unused-vars
   const error = {
     error: err.message,
     stacktrace: err.stack,
   };
-  if (process.env.NODE_ENV === 'production') {
+  if (isProduction) {
     delete error.stacktrace;
   }
   res.status(err.status || 500);
   res.json(error);
-};
+}
+
+// To render exceptions thrown in non-promies code:
+process.on('uncaughtException', (error) => {
+  console.log(pe.render(error)); // eslint-disable-line no-console
+});
+// To render unhandled rejections created in BlueBird:
+process.on('unhandledRejection', (reason) => {
+  console.log('Unhandled rejection'); // eslint-disable-line no-console
+  console.log(pe.render(reason)); // eslint-disable-line no-console
+});
+
+module.exports = [
+  errorLogger,
+  errrorHandler,
+];
