@@ -3,9 +3,9 @@ version: "2"
 services:
   web:
     build: .
-    command: nodemon --debug=5858 ./server.js
+    command: nodemon --inspect=0.0.0.0:9229 ./server.js
     volumes:
       - .:/usr/src/app
     ports:
       - "5000:5000"
-      - "5858:5858"
+      - "9229:9229"
