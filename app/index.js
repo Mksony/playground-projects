@@ -9,10 +9,13 @@ const { logger } = require('../tools/logger');
 const { authRouter } = require('../routes/auth');
 
 const app = express();
+const isDevelopment = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test';
 
 app.use(helmet());
 app.use(compression());
-app.use(morgan('dev', { stream: logger.stream }));
+if (isDevelopment) {
+  app.use(morgan('dev', { stream: logger.stream }));
+}
 
 app.use('/auth', authRouter);
 app.get('/', (req, res) => {

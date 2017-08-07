@@ -2,16 +2,20 @@ const PrettyError = require('pretty-error');
 
 const pe = new PrettyError();
 const isProduction = process.env.NODE_ENV === 'production';
+const isTest = process.env.NODE_ENV === 'test';
 pe.skipNodeFiles();
 pe.skipPackage('express', 'morgan', 'winston');
 
 function errorLogger(err, req, res, next) {
+  if (isTest) {
+    return next(err);
+  }
   if (isProduction) {
     // TODO: Add logging to /var/log/node/error.log here
   } else {
     console.log(pe.render(err)); // eslint-disable-line no-console
   }
-  next(err);
+  return next(err);
 }
 
 function errrorHandler(err, req, res, next) { // eslint-disable-line no-unused-vars
