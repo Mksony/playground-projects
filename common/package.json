@@ -7,26 +7,28 @@
     "tsfmt": "./bin/tsfmt"
   },
   "dependencies": {
-    "@types/jest": "^19.2.2",
-    "@types/node": "^7.0.14",
-    "@types/react": "^15.0.24",
+    "@types/jest": "^20.0.8",
+    "@types/node": "^8.0.27",
+    "@types/react": "^16.0.5",
     "@types/react-autosuggest": "^8.0.1",
-    "@types/react-dom": "^15.5.0",
-    "react": "^15.5.4",
-    "react-autosuggest": "^9.0.1",
-    "react-dom": "^15.5.4",
+    "@types/react-dom": "^15.5.4",
+    "@types/storybook__addon-actions": "^3.0.1",
+    "@types/storybook__react": "^3.0.5",
+    "react": "^15.6.1",
+    "react-autosuggest": "^9.3.2",
+    "react-dom": "^15.6.1",
     "react-icons": "^2.2.5",
-    "styled-components": "^1.4.6"
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
-    "@types/node": "^7.0.16",
-    "react-scripts-ts": "1.4.0",
+    "react-scripts-ts": "2.6.0",
     "rimraf": "^2.6.1",
-    "tslint": "^5.2.0",
-    "tslint-eslint-rules": "^4.0.0",
-    "typescript": "^2.3.2",
-    "typescript-formatter": "^5.2.0"
+    "ts-loader": "^2.3.6",
+    "tslint": "^5.7.0",
+    "tslint-eslint-rules": "^4.1.1",
+    "typescript": "^2.5.2",
+    "typescript-formatter": "^6.0.0",
+    "@storybook/react": "3.2.8"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -40,7 +42,7 @@
     "lint:fix": "tslint --project ./tsconfig.json --fix",
     "format": "tsfmt -r",
     "prettify": "npm run lint:fix && npm run format",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook"
   }
 }
