@@ -4,5 +4,5 @@ export interface Media {
     sm: any;
     xs: any;
 }
-declare var _default: Media;
+declare const _default: Media;
 export default _default;

@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 import { Sizes } from 'types';
 export interface InputProps {
     isLoading?: boolean;
@@ -20,8 +21,5 @@ export interface InputProps {
     onClearClick?: (e?: React.SyntheticEvent<HTMLElement>) => void;
     [key: string]: any;
 }
-declare const StyledInput: React.ComponentClass<InputProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledInput: StyledComponentClass<InputProps, any, InputProps>;
 export default StyledInput;

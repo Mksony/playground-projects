@@ -14,4 +14,3 @@ var colors = {
     danger: '#ff3860',
 };
 exports.default = colors;
-//# sourceMappingURL=colors.js.map

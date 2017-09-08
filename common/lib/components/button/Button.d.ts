@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 import { DefaultColors, Sizes } from 'types';
 export interface ButtonProps {
     component?: any;
@@ -11,8 +10,5 @@ export interface ButtonProps {
     type?: {};
     label?: string;
 }
-declare const StyledButton: React.ComponentClass<ButtonProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledButton: StyledComponentClass<ButtonProps, any, ButtonProps>;
 export default StyledButton;

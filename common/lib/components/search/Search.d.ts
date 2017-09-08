@@ -22,7 +22,7 @@ export interface SearchProps {
     size?: Sizes;
     isLoading?: boolean;
 }
-declare class Search extends React.Component<SearchProps, null> {
+declare class Search extends React.Component<SearchProps> {
     static defaultProps: Partial<SearchProps>;
     render(): JSX.Element;
 }

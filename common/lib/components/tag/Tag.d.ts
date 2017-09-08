@@ -1,13 +1,9 @@
-/// <reference types="react" />
-import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 import { DefaultColors } from 'types';
 export interface TagProps {
     text?: string;
     color: DefaultColors;
     className?: string;
 }
-declare const StyledTag: React.ComponentClass<TagProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledTag: StyledComponentClass<TagProps, any, TagProps>;
 export default StyledTag;
