@@ -1,6 +1,5 @@
 const path = require("path");
 const include = path.resolve(__dirname, '../src');
-console.log(include);
 
 module.exports = {
   resolve: {
