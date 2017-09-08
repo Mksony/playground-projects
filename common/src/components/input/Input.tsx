@@ -179,7 +179,7 @@ class Input extends React.Component<InputProps, InputState> {
           type={type}
           onChange={this.handleChange}
           {...otherProps}
-          ref={(input) => this.input = input}
+          ref={(input) => this.input = input as HTMLInputElement}
           onFocus={this.handleFocus}
           value={value}
         />

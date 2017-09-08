@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import InputGroup from './InputGroup';
 
 storiesOf('InputGroup', module)
@@ -35,13 +35,5 @@ storiesOf('InputGroup', module)
           size="large"
         />
       </div>
-    );
-  })
-  .add('Default', () => {
-    return (
-      <InputGroup
-        buttonLabel="Click Me"
-        placeholder="Enter Input"
-      />
     );
   });
