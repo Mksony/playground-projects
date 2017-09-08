@@ -23,4 +23,3 @@ function getIconPadding(_a) {
     return iconPadding;
 }
 exports.getIconPadding = getIconPadding;
-//# sourceMappingURL=mixins.js.map

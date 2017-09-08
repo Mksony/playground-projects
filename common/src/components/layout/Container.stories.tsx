@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import Container from './Container';
 
 storiesOf('Container', module)
@@ -38,6 +38,6 @@ storiesOf('Container', module)
       backgroundUrl="https://unsplash.it/1920/1080"
       bgColor="rgba(146, 255, 255, 0.6)"
     >
-      <h1>Hello</h1>
+      <h1>Hello Wor</h1>
     </Container>
   ));

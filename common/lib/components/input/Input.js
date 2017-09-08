@@ -35,7 +35,7 @@ var RightIcon = (_a = ["\n    position: absolute;\n    top: 0;\n    right: 0;\n"
 var RightCloseIcon = (_b = ["\n    position: absolute;\n    top: 0;\n    right: 0;\n"], _b.raw = ["\n    position: absolute;\n    top: 0;\n    right: 0;\n"], styled_components_1.default(Icon_1.CloseIcon)(_b));
 var LeftIcon = (_c = ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], _c.raw = ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], styled_components_1.default(Icon_1.IonicIcon)(_c));
 var LeftLoadingIcon = (_d = ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], _d.raw = ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], styled_components_1.default(Icon_1.LoadingIcon)(_d));
-var Input = (function (_super) {
+var Input = /** @class */ (function (_super) {
     __extends(Input, _super);
     function Input(props) {
         var _this = _super.call(this, props) || this;
@@ -127,11 +127,11 @@ var Input = (function (_super) {
             React.createElement("input", __assign({ autoComplete: autoComplete, autoFocus: autoFocus, onBlur: this.handleBlur, placeholder: placeholder, type: type, onChange: this.handleChange }, otherProps, { ref: function (input) { return _this.input = input; }, onFocus: this.handleFocus, value: value })),
             this.getRightIcon()));
     };
+    Input.defaultProps = {
+        type: 'text',
+    };
     return Input;
 }(React.Component));
-Input.defaultProps = {
-    type: 'text',
-};
 var StyledInput = (_e = ["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", "\n    ", "\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", "\n  }\n"], _e.raw = ["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", "\n    ",
     "\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", "\n  }\n"], styled_components_1.default(Input)(_e, function (props) { return styles_1.getFormElementDimensions(props.size); }, function (_a) {
     var iconLeft = _a.iconLeft, iconRight = _a.iconRight, loadingIcon = _a.isLoading, clearIcon = _a.clearable;
@@ -144,4 +144,3 @@ var StyledInput = (_e = ["\n  position: relative;\n  input {\n    background-col
 }, styles_1.colors.grey.default, function (props) { return styles_1.getFormElementDimensions(props.size); }));
 exports.default = StyledInput;
 var _a, _b, _c, _d, _e;
-//# sourceMappingURL=Input.js.map

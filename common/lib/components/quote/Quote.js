@@ -15,4 +15,3 @@ var Quote = function (_a) {
 var StyledQuote = (_b = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], _b.raw = ["\n    background-color: rgba(235, 235, 235, .3);\n    border-left: 5px solid;\n    padding: 1.25em 1.5em;\n"], styled_components_1.default(Quote)(_b));
 exports.default = StyledQuote;
 var _a, _b;
-//# sourceMappingURL=Quote.js.map

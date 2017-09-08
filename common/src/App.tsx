@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Container from './components/layout/Container';
 
-class App extends React.Component<{}, null> {
+class App extends React.Component {
   render() {
     return (
       <div className="App">

@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 import { DefaultColors } from 'types';
 export interface QuoteProps {
     text?: string;
@@ -8,8 +7,5 @@ export interface QuoteProps {
     tagColor?: DefaultColors;
     className?: string;
 }
-declare const StyledQuote: React.ComponentClass<QuoteProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledQuote: StyledComponentClass<QuoteProps, any, QuoteProps>;
 export default StyledQuote;

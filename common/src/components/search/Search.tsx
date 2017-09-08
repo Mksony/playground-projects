@@ -86,7 +86,7 @@ const renderInputComponent = ({
     );
   };
 
-class Search extends React.Component<SearchProps, null> {
+class Search extends React.Component<SearchProps> {
 
   static defaultProps: Partial<SearchProps> = {
     placeholder: 'Search...',

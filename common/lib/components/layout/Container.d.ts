@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 export interface ChildContainerProps {
     fluid?: boolean;
     textCenter?: boolean;
@@ -17,8 +16,5 @@ export interface BaseContainerProps extends ChildContainerProps {
     backgroundUrl?: string;
     compact?: boolean;
 }
-declare const StyledContainer: React.ComponentClass<BaseContainerProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledContainer: StyledComponentClass<BaseContainerProps, any, BaseContainerProps>;
 export default StyledContainer;

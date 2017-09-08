@@ -36,4 +36,3 @@ StyledButton.defaultProps = {
 };
 exports.default = StyledButton;
 var _a;
-//# sourceMappingURL=Button.js.map
