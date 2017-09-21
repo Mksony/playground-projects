@@ -8,7 +8,7 @@ import Container from '../layout/Container';
 storiesOf('Card', module)
   .add('Default color', () => {
     return (
-      <Container maxWidth={600} hCenter bgColor="hotpink">
+      <Container fullHeight maxWidth={600} center bgColor="hotpink">
         <Card>
           <CardContent>
             <p>Test</p>
@@ -19,7 +19,7 @@ storiesOf('Card', module)
   })
   .add('Custom color', () => {
     return (
-      <Container maxWidth={600} hCenter bgColor="hotpink">
+      <Container fullHeight maxWidth={600} center bgColor="hotpink">
         <Card bgColor="rgba(255, 255, 255, .6)">
           <CardContent>
             <p>Test</p>
@@ -30,7 +30,7 @@ storiesOf('Card', module)
   })
   .add('With Header', () => {
     return (
-      <Container maxWidth={600} hCenter bgColor="hotpink">
+      <Container fullHeight maxWidth={600} center bgColor="hotpink">
         <Card bgColor="rgba(255, 255, 255, .6)">
           <CardHeader title="Hello World"/>
           <CardContent>
@@ -44,7 +44,7 @@ storiesOf('Card', module)
   })
   .add('ImageCard', () => {
     return (
-      <Container maxWidth={600} hCenter bgColor="hotpink">
+      <Container fullHeight maxWidth={600} center bgColor="hotpink">
         <ImageCard
           imgSrc="http://via.placeholder.com/1920x1080"
           altText="sampleImage"
