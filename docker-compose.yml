@@ -3,7 +3,7 @@ version: "2"
 services:
   web:
     build: .
-    command: nodemon --inspect=0.0.0.0:9229 ./server.js
+    command: npm run start:debug
     volumes:
       - .:/usr/src/app
     ports:

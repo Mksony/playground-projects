@@ -1,13 +1,9 @@
-FROM node:latest
-# Create app directory
-RUN mkdir -p /usr/src/app
-# use nodemon for development
-RUN npm install --global nodemon
+FROM node:8.5.0
 WORKDIR /usr/src/app
-COPY package.json /usr/src/app/
-RUN npm install
-# Bundle app source
 COPY . /usr/src/app
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+RUN npm install
 
 EXPOSE 5000
 EXPOSE 9229

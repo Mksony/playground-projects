@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec --recursive",
+    "test": "NODE_ENV=test mocha --reporter spec --recursive",
     "test:watch": "npm test -- --watch",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "start:debug": "nodemon --inspect=0.0.0.0:9229 server.js"
   },
   "keywords": [],
   "author": "",
