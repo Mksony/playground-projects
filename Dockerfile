@@ -6,5 +6,5 @@ COPY package-lock.json package-lock.json
 RUN npm install
 
 EXPOSE 5000
-EXPOSE 9229
+
 CMD [ "npm", "start" ]
