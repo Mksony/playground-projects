@@ -1,6 +1,6 @@
 import { REQUEST_QUOTE, RECEIVE_QUOTE, FAIL_TO_LOAD_QUOTE} from './actionTypes';
 
-const initialState = {
+export const initialState = {
   isFetching: false,
   text: null,
   author: null,
