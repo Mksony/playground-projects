@@ -15,10 +15,9 @@ const POST_URL = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&f
 export const getRandomQuote = () => new Promise((resolve, reject) => {
   jsonp(POST_URL, {param: '_jsonp'}, (err, data) => {
     if (err) {
-      reject(err);
-    } else {
-      const [quote] = data;
-      resolve(sanitizeObject(quote));
+      return reject(err);
     }
+      const [quote] = data;
+      return resolve(sanitizeObject(quote));
   });
 });
