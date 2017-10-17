@@ -10,6 +10,11 @@ const middlewares = [thunk];
 const createMockStore = configureStore(middlewares);
 const store = createMockStore(initialState);
 
+const quote = {
+  text: 'Hello World',
+  author: 'John Doe',
+};
+
 beforeEach(() => {
   store.clearActions();
 });
@@ -29,10 +34,6 @@ describe('requestQuote()', function () {
 
 describe('receiveQuote()', function () {
   it('should dispatch action of type RECEIVE_QUOTE', function () {
-    const quote = {
-      text: 'Hello World',
-      author: 'John Doe',
-    };
     const expected = {
       type: RECEIVE_QUOTE,
       ...quote,
@@ -61,11 +62,6 @@ describe('failToLoadQuote()', function () {
 
 describe('loadQuote()', function () {
   it('should dispatch receive quote on success', function () {
-    const quote = {
-      text: 'Hello World',
-      author: 'John Doe',
-    };
-
     quotes.getRandomQuote = jest.fn(() => {
       return Promise.resolve({
         content: quote.text,
