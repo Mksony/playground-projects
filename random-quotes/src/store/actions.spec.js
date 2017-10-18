@@ -15,7 +15,7 @@ const quote = {
   author: 'John Doe',
 };
 
-beforeEach(() => {
+afterEach(() => {
   store.clearActions();
 });
 
@@ -79,7 +79,7 @@ describe('loadQuote()', function () {
       },
     ];
 
-    store.dispatch(loadQuote()).then(() => {
+    return store.dispatch(loadQuote()).then(() => {
       const actions = store.getActions();
       expect(actions).toEqual(expected);
     });
