@@ -13,7 +13,6 @@ const quote = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        errorMessage: null,
       };
     case RECEIVE_QUOTE:
       return {
