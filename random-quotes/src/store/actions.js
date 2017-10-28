@@ -13,7 +13,7 @@ export const receiveQuote = ({ text, author }) => ({
 
 export const failToLoadQuote = () => ({
   type: FAIL_TO_LOAD_QUOTE,
-  errorMessage: 'Something went wrong, please try again.'
+  errorMessage: 'Something went wrong, please try again.',
 });
 
 export const loadQuote = () => (dispatch) => {

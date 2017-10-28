@@ -84,4 +84,25 @@ describe('loadQuote()', function () {
       expect(actions).toEqual(expected);
     });
   });
+
+  it('should dispatch fail action on failure', function () {
+    quotes.getRandomQuote = jest.fn(() => {
+      return Promise.reject();
+    });
+
+    const expected = [
+      {
+        type: REQUEST_QUOTE,
+      },
+      {
+      type: FAIL_TO_LOAD_QUOTE,
+      errorMessage: 'Something went wrong, please try again.',
+      },
+    ];
+
+    return store.dispatch(loadQuote()).then(() => {
+      const actions = store.getActions();
+      expect(actions).toEqual(expected);
+    });
+  });
 })
