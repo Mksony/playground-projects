@@ -5,22 +5,22 @@ export const requestQuote = () => ({
   type: REQUEST_QUOTE,
 });
 
-export const receiveQuote = (quote) => ({
+export const receiveQuote = ({ text, author }) => ({
   type: RECEIVE_QUOTE,
-  text: quote.content,
-  author: quote.title,
+  text,
+  author,
 });
 
 export const failToLoadQuote = () => ({
   type: FAIL_TO_LOAD_QUOTE,
-  errorMessage: 'Something went wrong, please try again.'
+  errorMessage: 'Something went wrong, please try again.',
 });
 
 export const loadQuote = () => (dispatch) => {
   dispatch(requestQuote());
   return getRandomQuote()
-    .then((quote) => {
-      dispatch(receiveQuote(quote))
+    .then(({ content, title }) => {
+      dispatch(receiveQuote({ text: content, author: title }))
     }).catch(err => {
       dispatch(failToLoadQuote())
   })
