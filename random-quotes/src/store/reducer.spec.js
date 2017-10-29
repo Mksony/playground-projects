@@ -10,9 +10,7 @@ describe('quote reducer', () => {
   });
 
   it('should return the quote fetching state', () => {
-    const action = {
-      type: actionTypes.REQUEST_QUOTE,
-    };
+    const action = { type: actionTypes.REQUEST_QUOTE };
 
     const expected = {
       ...initialState,
@@ -21,21 +19,21 @@ describe('quote reducer', () => {
     const actual = reducer(undefined, action);
 
     expect(actual).toEqual(expected);
-  })
+  });
 
   it('should return new state with author and quote', () => {
     const action = {
       type: actionTypes.RECEIVE_QUOTE,
       author: 'John Doe',
       text: 'Hello, World',
-    }
+    };
 
     const expected = {
       ...initialState,
       author: 'John Doe',
       text: 'Hello, World',
       isFetching: false,
-    }
+    };
     const actual = reducer(undefined, action);
 
     expect(actual).toEqual(expected);
@@ -45,12 +43,12 @@ describe('quote reducer', () => {
     const action = {
       type: actionTypes.FAIL_TO_LOAD_QUOTE,
       errorMessage: 'Something went wrong, please try again.',
-    }
+    };
 
     const expected = {
       ...initialState,
       errorMessage: 'Something went wrong, please try again.',
-    }
+    };
     const actual = reducer(undefined, action);
 
     expect(actual).toEqual(expected);

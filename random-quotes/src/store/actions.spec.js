@@ -2,8 +2,17 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import * as quotes from '../api/quotes';
-import { REQUEST_QUOTE, RECEIVE_QUOTE, FAIL_TO_LOAD_QUOTE } from './actionTypes';
-import { requestQuote, receiveQuote, failToLoadQuote, loadQuote } from './actions';
+import {
+  REQUEST_QUOTE,
+  RECEIVE_QUOTE,
+  FAIL_TO_LOAD_QUOTE,
+} from './actionTypes';
+import {
+  requestQuote,
+  receiveQuote,
+  failToLoadQuote,
+  loadQuote,
+} from './actions';
 import { initialState } from './reducer';
 
 const middlewares = [thunk];
@@ -19,21 +28,19 @@ afterEach(() => {
   store.clearActions();
 });
 
-describe('requestQuote()', function () {
-  it('should dispatch action of type REQUEST_QUOTE', function () {
-    const expected = {
-      type: REQUEST_QUOTE,
-    };
+describe('requestQuote()', () => {
+  it('should dispatch action of type REQUEST_QUOTE', () => {
+    const expected = { type: REQUEST_QUOTE };
 
     store.dispatch(requestQuote());
     const actions = store.getActions();
 
     expect(actions).toEqual([expected]);
   });
-})
+});
 
-describe('receiveQuote()', function () {
-  it('should dispatch action of type RECEIVE_QUOTE', function () {
+describe('receiveQuote()', () => {
+  it('should dispatch action of type RECEIVE_QUOTE', () => {
     const expected = {
       type: RECEIVE_QUOTE,
       ...quote,
@@ -46,8 +53,8 @@ describe('receiveQuote()', function () {
   });
 });
 
-describe('failToLoadQuote()', function () {
-  it('should dispatch action of type FAIL_TO_LOAD_QUOTE', function () {
+describe('failToLoadQuote()', () => {
+  it('should dispatch action of type FAIL_TO_LOAD_QUOTE', () => {
     const expected = {
       type: FAIL_TO_LOAD_QUOTE,
       errorMessage: 'Something went wrong, please try again.',
@@ -60,22 +67,20 @@ describe('failToLoadQuote()', function () {
   });
 });
 
-describe('loadQuote()', function () {
-  it('should dispatch receive quote on success', function () {
-    quotes.getRandomQuote = jest.fn(() => {
-      return Promise.resolve({
+describe('loadQuote()', () => {
+  it('should dispatch receive quote on success', () => {
+    quotes.getRandomQuote = jest.fn(() =>
+      Promise.resolve({
         content: quote.text,
         title: quote.author,
-      });
-    });
+      })
+    );
 
     const expected = [
+      { type: REQUEST_QUOTE },
       {
-        type: REQUEST_QUOTE,
-      },
-      {
-      type: RECEIVE_QUOTE,
-      ...quote,
+        type: RECEIVE_QUOTE,
+        ...quote,
       },
     ];
 
@@ -85,18 +90,14 @@ describe('loadQuote()', function () {
     });
   });
 
-  it('should dispatch fail action on failure', function () {
-    quotes.getRandomQuote = jest.fn(() => {
-      return Promise.reject();
-    });
+  it('should dispatch fail action on failure', () => {
+    quotes.getRandomQuote = jest.fn(() => Promise.reject());
 
     const expected = [
+      { type: REQUEST_QUOTE },
       {
-        type: REQUEST_QUOTE,
-      },
-      {
-      type: FAIL_TO_LOAD_QUOTE,
-      errorMessage: 'Something went wrong, please try again.',
+        type: FAIL_TO_LOAD_QUOTE,
+        errorMessage: 'Something went wrong, please try again.',
       },
     ];
 
@@ -105,4 +106,4 @@ describe('loadQuote()', function () {
       expect(actions).toEqual(expected);
     });
   });
-})
+});
