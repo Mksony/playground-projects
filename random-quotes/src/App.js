@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Container from '../../common/lib/components/layout/Container';
 import Button from '../../common/lib/components/button/Button';
 import Quote from '../../common/lib/components/quote/Quote';
-import {colors} from '../../common/lib/styles';
-import {loadQuote} from './store/actions';
+import { colors } from '../../common/lib/styles';
+import * as quoteActions from './store/actions';
 import {
   getAuthor,
   getFetchingState,
@@ -16,31 +16,25 @@ import {
 } from './store/reducer';
 
 class App extends Component {
-
   static propTypes = {
-    quote: PropTypes.string,
-    author: PropTypes.string,
+    quote: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
     isFetching: PropTypes.bool.isRequired,
     loadQuote: PropTypes.func.isRequired,
-  }
+    errorMessage: PropTypes.string.isRequired,
+  };
 
   componentDidMount() {
     this.props.loadQuote();
   }
 
   render() {
-    const {
-      quote,
-      author,
-      isFetching,
-      loadQuote,
-      errorMessage,
-    } = this.props;
+    const { quote, author, isFetching, loadQuote, errorMessage } = this.props;
     let quoteComponent;
     if (isFetching) {
-      quoteComponent = (<h1 style={{ textAlign: 'center' }}>Loading ...</h1>);
+      quoteComponent = <h1 style={{ textAlign: 'center' }}>Loading ...</h1>;
     } else {
-      quoteComponent = (<Quote text={quote} author={author} />);
+      quoteComponent = <Quote text={quote} author={author} />;
     }
 
     return (
@@ -60,21 +54,18 @@ class App extends Component {
             onClick={loadQuote}
             disabled={isFetching}
           />
-          {
-            errorMessage && <p>{errorMessage}</p>
-          }
+          {errorMessage && <p>{errorMessage}</p>}
         </Container>
         <Container maxWidth={600} center>
           {quoteComponent}
-          </Container>
+        </Container>
       </Container>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  loadQuote: bindActionCreators(loadQuote, dispatch),
-})
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ loadQuote: quoteActions.loadQuote }, dispatch);
 
 const mapStateToProps = state => {
   const author = getAuthor(state);
@@ -86,7 +77,7 @@ const mapStateToProps = state => {
     quote,
     isFetching,
     errorMessage,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
