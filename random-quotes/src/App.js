@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Container from '../../common/lib/components/layout/Container';
-import Button from '../../common/lib/components/button/Button';
-import Quote from '../../common/lib/components/quote/Quote';
-import { colors } from '../../common/lib/styles';
+import Container from 'common/lib/components/layout/Container';
+import Button from 'common/lib/components/button/Button';
+import Quote from 'common/lib/components/quote/Quote';
+import { colors } from 'common/lib/styles';
 import * as quoteActions from './store/actions';
 import {
   getAuthor,

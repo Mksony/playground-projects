@@ -4,12 +4,12 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import App from './App';
 import {
   resetStyles,
   sanitizeStyles,
   addDefaultStyles,
-} from '../../common/lib/styles';
+} from 'common/lib/styles';
+import App from './App';
 import reducer from './store/reducer';
 
 sanitizeStyles();
