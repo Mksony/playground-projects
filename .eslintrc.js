@@ -2,7 +2,7 @@ module.exports = {
   extends: ['airbnb', 'prettier'],
   root: true,
   rules: {
-    'max-len': ['error', { code: 50, ignoreUrls: true }],
+    'max-len': ['error', { ignoreUrls: true }],
     'object-curly-newline': [
       'error',
       {
