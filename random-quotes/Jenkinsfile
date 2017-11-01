@@ -1,5 +1,5 @@
 node {
-    customWorkspace '/var/jenkins_home/playground-projects'
+  ws('/var/jenkins_home/workspace/playground-projects'){
     stage('Build') {
         def workspace = pwd()
         echo 'Building....'
@@ -11,4 +11,5 @@ node {
     stage('Deploy') {
         echo 'Deploying....'
     }
+  }
 }
