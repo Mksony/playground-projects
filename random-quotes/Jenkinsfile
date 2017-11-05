@@ -12,6 +12,7 @@ node {
         'HOME=.',
         'CI=true'
         ]) {
+
             stage('Install dependencies') {
                 sh 'cd random-quotes && npm install'
             }
