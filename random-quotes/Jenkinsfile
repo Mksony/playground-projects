@@ -1,5 +1,5 @@
 node {
-    git branch: 'develop', url: 'https://github.com/Mksony/playground-projects.git'
+    checkout([$class: 'GitSCM', branches: [[name: "*/${BRANCH_NAME}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PathRestriction', excludedRegions: '', includedRegions: 'random-quotes/.*']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Mksony/playground-projects']]])
 
     docker.image('node:8.1.0').inside('--user node') {
         withEnv([
@@ -12,6 +12,7 @@ node {
         'HOME=.',
         'CI=true'
         ]) {
+
             stage('Install dependencies') {
                 sh 'cd random-quotes && npm install'
             }
