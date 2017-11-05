@@ -1,5 +1,7 @@
-# react-playground-projects
-This repo contains my react implementation of [bulma.io](bulma.io) written in Typescript.
+# Playground projects
+This repo is the central place for my private projects managed as a monorepo.
+
+It contains my react implementation of [bulma.io](bulma.io) written in Typescript.
 
 It serves as a playground for projects and for testing new tools from the react ecosphere.
 
