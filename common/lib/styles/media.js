@@ -23,4 +23,3 @@ var media = Object.keys(sizes).reduce(function (accumulator, label) {
     return accumulator;
 }, {});
 exports.default = media;
-//# sourceMappingURL=media.js.map

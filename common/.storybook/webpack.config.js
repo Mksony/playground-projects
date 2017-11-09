@@ -1,20 +1,35 @@
 const path = require("path");
-const include = path.resolve(__dirname, '../');
+const include = path.resolve(__dirname, '../src');
 
 module.exports = {
   resolve: {
     // Add `.ts` and `.tsx` as a resolvable extension.
-    extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+    extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
   },
   module: {
-    loaders: [
-      { test: /\.css?$/, loaders: ['style', 'raw'], include },
+    rules: [
+      {
+        test: /\.css?$/,
+        use: [
+          'style-loader',
+          'raw-loader'
+        ],
+        include,
+        exclude: path.resolve(__dirname, '../node_modules'),
+      },
       // { test: /\.json?$/, loaders: ['json'], include },
-      { test: /\.ts(x?)$/, loader: "babel-loader!ts-loader", include },
+      {
+        test: /\.ts(x?)$/,
+        use: [
+          'ts-loader',
+        ],
+        include,
+        exclude: path.resolve(__dirname, '../node_modules'),
+      },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file?hash=sha512&digest=hex&name=[hash].[ext]',
+        use: [
+          'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
           'image-webpack?bypassOnDebug'
         ]
       },

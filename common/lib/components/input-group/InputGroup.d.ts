@@ -1,5 +1,4 @@
-/// <reference types="react" />
-import * as React from 'react';
+import { StyledComponentClass } from 'styled-components';
 import { Sizes } from 'types';
 import { InputProps } from '../input/Input';
 import { ButtonProps } from '../button/Button';
@@ -11,8 +10,5 @@ export interface InputGroupProps {
     size?: Sizes;
     className?: string;
 }
-declare const StyledInputGroup: React.ComponentClass<InputGroupProps & {
-    theme?: any;
-    innerRef?: ((instance: any) => void) | undefined;
-}>;
+declare const StyledInputGroup: StyledComponentClass<InputGroupProps, any, InputGroupProps>;
 export default StyledInputGroup;

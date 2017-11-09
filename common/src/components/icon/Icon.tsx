@@ -33,7 +33,7 @@ const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, classNa
   const ReactIcon = require(`react-icons/lib/${iconSetFolder}/${name}`);
   return (
     <i className={className} onClick={onClick}>
-      <ReactIcon />
+      {React.createElement(ReactIcon as React.ComponentClass)}
     </i>
   );
 };

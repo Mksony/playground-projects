@@ -6,4 +6,3 @@ var sanitizeStyles = function () {
     var _a;
 };
 exports.default = sanitizeStyles;
-//# sourceMappingURL=sanitize.js.map

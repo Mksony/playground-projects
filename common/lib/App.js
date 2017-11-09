@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var Container_1 = require("./components/layout/Container");
-var App = (function (_super) {
+var App = /** @class */ (function (_super) {
     __extends(App, _super);
     function App() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -30,4 +30,3 @@ var App = (function (_super) {
     return App;
 }(React.Component));
 exports.default = App;
-//# sourceMappingURL=App.js.map

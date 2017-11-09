@@ -34,7 +34,7 @@ var renderInputComponent = function (_a) {
         return (React.createElement(Input_1.default, __assign({ size: size, iconLeft: icon, clearable: true, onClearClick: handleClear }, inputProps)));
     };
 };
-var Search = (function (_super) {
+var Search = /** @class */ (function (_super) {
     __extends(Search, _super);
     function Search() {
         return _super !== null && _super.apply(this, arguments) || this;
@@ -50,14 +50,13 @@ var Search = (function (_super) {
         return (React.createElement(StyledWrapper, { size: size },
             React.createElement(Autosuggest, { suggestions: suggestions, onSuggestionsFetchRequested: onSuggestionsFetchRequested, onSuggestionsClearRequested: onSuggestionsClearRequested, onSuggestionSelected: onSuggestionSelected, getSuggestionValue: getSuggestionValue, renderSuggestion: renderSuggestion, inputProps: inputProps, renderInputComponent: renderInputComponent(this.props), focusInputOnSuggestionClick: false })));
     };
+    Search.defaultProps = {
+        placeholder: 'Search...',
+        type: 'search',
+        size: 'default',
+        icon: 'search',
+    };
     return Search;
 }(React.Component));
-Search.defaultProps = {
-    placeholder: 'Search...',
-    type: 'search',
-    size: 'default',
-    icon: 'search',
-};
 exports.default = Search;
 var _a;
-//# sourceMappingURL=Search.js.map

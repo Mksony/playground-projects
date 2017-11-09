@@ -6,4 +6,3 @@ var resetStyles = function () {
     var _a;
 };
 exports.default = resetStyles;
-//# sourceMappingURL=reset.js.map

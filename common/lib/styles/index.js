@@ -15,5 +15,6 @@ var theme_1 = require("./theme");
 exports.theme = theme_1.default;
 var colors_1 = require("./colors");
 exports.colors = colors_1.default;
+var styled_components_1 = require("styled-components");
+exports.styled = styled_components_1.default;
 __export(require("./mixins"));
-//# sourceMappingURL=index.js.map
