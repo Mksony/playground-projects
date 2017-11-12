@@ -1,6 +1,4 @@
 module.exports = {
-    "extends": "airbnb-base",
-    "env": {
-        "mocha": true,
-    }
+  extends: '../modules/eslint-config/react.eslintrc.js',
+  root: true,
 };

@@ -18,6 +18,4 @@ router.get('/logout', (req, res) => {
   res.send('User logged out');
 });
 
-module.exports = {
-  authRouter: router,
-};
+module.exports = { authRouter: router };
