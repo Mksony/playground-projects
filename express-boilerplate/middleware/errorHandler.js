@@ -17,8 +17,8 @@ function errorLogger(err, req, res, next) {
   }
   return next(err);
 }
-
-function errrorHandler(err, req, res, next) { // eslint-disable-line no-unused-vars
+// eslint-disable-next-line no-unused-vars
+function errrorHandler(err, req, res, next) {
   const error = {
     error: err.message,
     stacktrace: err.stack,
@@ -31,16 +31,13 @@ function errrorHandler(err, req, res, next) { // eslint-disable-line no-unused-v
 }
 
 // To render exceptions thrown in non-promies code:
-process.on('uncaughtException', (error) => {
+process.on('uncaughtException', error => {
   console.log(pe.render(error)); // eslint-disable-line no-console
 });
 // To render unhandled rejections created in BlueBird:
-process.on('unhandledRejection', (reason) => {
+process.on('unhandledRejection', reason => {
   console.log('Unhandled rejection'); // eslint-disable-line no-console
   console.log(pe.render(reason)); // eslint-disable-line no-console
 });
 
-module.exports = [
-  errorLogger,
-  errrorHandler,
-];
+module.exports = [errorLogger, errrorHandler];
