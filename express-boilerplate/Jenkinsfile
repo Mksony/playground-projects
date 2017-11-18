@@ -14,11 +14,11 @@ node {
         ]) {
 
             stage('Install dependencies') {
-                sh 'cd express-boilerplate && npm install'
+                sh 'cd express-boilerplate && yarn'
             }
 
             stage('Run tests') {
-                sh 'cd express-boilerplate && npm run test:ci'
+                sh 'cd express-boilerplate && yarn test:ci'
                 stash includes: 'express-boilerplate/junit.xml', name: 'testResults'
             }
 
