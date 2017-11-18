@@ -9,7 +9,7 @@ module.exports = {
     '!**/*.*.js',
     '!test-results/**/*.js',
   ],
-  testPathIgnorePatterns: ['/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/', '/.cache/'],
   coverageDirectory: path.resolve(__dirname, '../test-results'),
   rootDir: path.join(__dirname, '..'),
 };
