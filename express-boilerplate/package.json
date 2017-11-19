@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
-    "test:report": "yarn test --config test/jest.config.js",
-    "test:ci": "yarn test --ci --testResultsProcessor=\"jest-junit\" --config test/jest.config.js",
+    "test": "NODE_ENV=test jest --config test/jest.config.js",
+    "test:report": "yarn test --coverage",
+    "test:ci": "yarn test --ci --testResultsProcessor=\"jest-junit\"",
     "test:watch": "yarn test --watch",
     "start": "nodemon server.js",
     "start:debug": "nodemon --inspect-brk=0.0.0.0:9229 server.js"

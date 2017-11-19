@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  collectCoverage: true,
   coverageReporters: ['text', 'html'],
   collectCoverageFrom: [
     '**/*.js',
@@ -9,7 +8,6 @@ module.exports = {
     '!**/*.*.js',
     '!test-results/**/*.js',
   ],
-  testPathIgnorePatterns: ['/node_modules/', '/.cache/'],
   coverageDirectory: path.resolve(__dirname, '../test-results'),
   rootDir: path.join(__dirname, '..'),
 };
