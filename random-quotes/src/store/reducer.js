@@ -1,6 +1,10 @@
-import { REQUEST_QUOTE, RECEIVE_QUOTE, FAIL_TO_LOAD_QUOTE} from './actionTypes';
+import {
+  REQUEST_QUOTE,
+  RECEIVE_QUOTE,
+  FAIL_TO_LOAD_QUOTE,
+} from './actionTypes';
 
-const initialState = {
+export const initialState = {
   isFetching: false,
   text: null,
   author: null,
@@ -13,7 +17,6 @@ const quote = (state = initialState, action) => {
       return {
         ...state,
         isFetching: true,
-        errorMessage: null,
       };
     case RECEIVE_QUOTE:
       return {
@@ -21,20 +24,20 @@ const quote = (state = initialState, action) => {
         isFetching: false,
         text: action.text,
         author: action.author,
-      }
+      };
     case FAIL_TO_LOAD_QUOTE:
       return {
         ...state,
         errorMessage: action.errorMessage,
-      }
+      };
     default:
       return state;
   }
-}
+};
 
 export default quote;
 
-export const getFetchingState = (state) => state.isFetching;
-export const getQuote = (state) => state.text;
-export const getAuthor = (state) => state.author;
-export const getErrorMessage = (state) => state.errorMessage;
+export const getFetchingState = state => state.isFetching;
+export const getQuote = state => state.text;
+export const getAuthor = state => state.author;
+export const getErrorMessage = state => state.errorMessage;

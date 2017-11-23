@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log
+
+# docker build -t max/node-web-app .
+# docker run -p 5000:5000 -p 9229:9229 -d max/node-web-app

@@ -11,14 +11,15 @@ TODO: This whole construct needs a refactor,
 better proxy api response through own server and get rid of this ugly jsonp XSS thing
 */
 
-const POST_URL = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
-export const getRandomQuote = () => new Promise((resolve, reject) => {
-  jsonp(POST_URL, {param: '_jsonp'}, (err, data) => {
-    if (err) {
-      reject(err);
-    } else {
+const POST_URL =
+  'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+export const getRandomQuote = () =>
+  new Promise((resolve, reject) => {
+    jsonp(POST_URL, { param: '_jsonp' }, (err, data) => {
+      if (err) {
+        return reject(err);
+      }
       const [quote] = data;
-      resolve(sanitizeObject(quote));
-    }
+      return resolve(sanitizeObject(quote));
+    });
   });
-});
