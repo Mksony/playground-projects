@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, StyledComponentClass } from 'styled-components';
 import { media } from '../../styles';
 
 export interface ChildContainerProps {

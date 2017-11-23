@@ -1,9 +1,9 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { StyledComponentClass } from 'styled-components';
 
 import { Card, CardContent } from './';
 
-interface ImageCardProps {
+export interface ImageCardProps {
   imgSrc: string;
   altText: string;
   bgColor?: string;
