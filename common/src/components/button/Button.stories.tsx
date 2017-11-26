@@ -1,11 +1,19 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+
 import Button from './Button';
+import Container from '../layout/Container';
+
+const CenterContainer = (storyFn: any) => (
+  <Container>{storyFn()}</Container>
+);
 
 storiesOf('Button', module)
-  .add('Default', () => (
+  .add('Default', withInfo('description or documentation about my component, supports markdown')(
+    () => (
     <Button color="primary" label="Click me" />
-  ))
+  )))
   .add('Available sizes', () => (
     <div>
       <Button size="small" color="primary" label="Click me" />

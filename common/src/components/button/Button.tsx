@@ -59,4 +59,6 @@ StyledButton.defaultProps = {
   color: 'primary',
 };
 
+StyledButton.displayName = 'Button';
+
 export default StyledButton;
