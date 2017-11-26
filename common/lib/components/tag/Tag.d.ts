@@ -5,5 +5,7 @@ export interface TagProps {
     color: DefaultColors;
     className?: string;
 }
-declare const StyledTag: StyledComponentClass<TagProps, any, TagProps>;
+declare const StyledTag: StyledComponentClass<TagProps, any, Pick<TagProps, "text" | "className" | "color"> & {
+    theme?: any;
+}>;
 export default StyledTag;

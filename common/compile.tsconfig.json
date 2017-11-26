@@ -8,6 +8,7 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "**/*.stories.tsx"
+    "**/*.stories.tsx",
+    "**/*.test.tsx"
   ]
 }

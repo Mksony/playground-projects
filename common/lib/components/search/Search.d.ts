@@ -8,9 +8,7 @@ export interface SearchProps {
     renderSuggestion: (suggestion: any) => React.ReactElement<any>;
     renderSuggestionsContainer?: ({containerProps, children, query}: any) => React.ReactElement<any>;
     suggestions: any[];
-    onChange: (e: React.SyntheticEvent<HTMLInputElement>, {newValue}: {
-        newValue: string;
-    }) => void;
+    onChange: (e: React.FormEvent<any>, params?: any) => void;
     onSuggestionsFetchRequested: ({value}: {
         value: string;
     }) => void;

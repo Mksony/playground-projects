@@ -1,4 +1,8 @@
 "use strict";
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var styled_components_1 = require("styled-components");
 // FIXME: Workaround to make css() work with reduce;
@@ -17,9 +21,9 @@ var media = Object.keys(sizes).reduce(function (accumulator, label) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return (_a = ["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "], _a.raw = ["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "], css(_a, sizes[label], css.apply(void 0, args)));
-        var _a;
+        return css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "])), sizes[label], css.apply(void 0, args));
     };
     return accumulator;
 }, {});
 exports.default = media;
+var templateObject_1;

@@ -10,5 +10,7 @@ export interface InputGroupProps {
     size?: Sizes;
     className?: string;
 }
-declare const StyledInputGroup: StyledComponentClass<InputGroupProps, any, InputGroupProps>;
+declare const StyledInputGroup: StyledComponentClass<InputGroupProps, any, Pick<InputGroupProps, "className" | "size" | "placeholder" | "buttonProps" | "inputProps" | "buttonLabel"> & {
+    theme?: any;
+}>;
 export default StyledInputGroup;

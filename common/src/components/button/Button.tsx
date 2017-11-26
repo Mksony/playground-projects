@@ -7,7 +7,7 @@ import { colors, getFormElementDimensions } from '../../styles';
 export interface ButtonProps {
   component?: any; // TODO: Find correct typing for component or string
   size?: Sizes;
-  color: DefaultColors;
+  color?: DefaultColors;
   ghost?: boolean;
   className?: string;
   onClick?: {};
@@ -25,7 +25,9 @@ const Button: React.SFC<ButtonProps> = ({
   return React.createElement(component, { className, ...otherProps }, label);
 };
 
-const resolveColor = ({ color, ghost }: ButtonProps) => {
+const resolveColor = (props: ButtonProps) => {
+  const color = props.color!;
+  const { ghost } = props;
   return `
     background-color: ${ghost ? 'transparent' : colors[color]};
     border-color: ${colors[color]};

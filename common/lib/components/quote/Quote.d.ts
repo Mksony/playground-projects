@@ -7,5 +7,7 @@ export interface QuoteProps {
     tagColor?: DefaultColors;
     className?: string;
 }
-declare const StyledQuote: StyledComponentClass<QuoteProps, any, QuoteProps>;
+declare const StyledQuote: StyledComponentClass<QuoteProps, any, Pick<QuoteProps, "text" | "className" | "author" | "tags" | "tagColor"> & {
+    theme?: any;
+}>;
 export default StyledQuote;
