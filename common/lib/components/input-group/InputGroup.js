@@ -1,4 +1,8 @@
 "use strict";
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -18,6 +22,6 @@ var InputGroup = function (_a) {
         React.createElement(Input_1.default, __assign({}, inputProps, { size: size, placeholder: placeholder })),
         React.createElement(Button_1.default, __assign({ color: "primary" }, buttonProps, { size: size, label: buttonLabel, type: "submit" }))));
 };
-var StyledInputGroup = (_a = ["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], _a.raw = ["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], styled_components_1.default(InputGroup)(_a));
+var StyledInputGroup = styled_components_1.default(InputGroup)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"], ["\n  display: flex;\n  & > div {\n    flex: 1;\n  }\n  & > button {\n    border-top-left-radius: 0;\n    border-bottom-left-radius: 0;\n  }\n  & input {\n    border-top-right-radius: 0px;\n    border-bottom-right-radius: 0px;\n  }\n"])));
 exports.default = StyledInputGroup;
-var _a;
+var templateObject_1;

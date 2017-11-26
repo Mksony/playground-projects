@@ -1,4 +1,8 @@
 "use strict";
+var __makeTemplateObject = (this && this.__makeTemplateObject) || function (cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -27,7 +31,7 @@ var InputWrapper = function (_a) {
     var children = _a.children, className = _a.className;
     return (React.createElement("div", { className: className }, children));
 };
-var StyledWrapper = (_a = ["\n  .react-autosuggest__container {\n    position: relative;\n  }\n  .react-autosuggest__input--open input {\n    border-bottom-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n  }\n  .react-autosuggest__suggestion {\n    ", "\n    cursor: pointer;\n    &:hover {\n      background-color: ", ";\n    }\n  }\n  .react-autosuggest__suggestion--highlighted {\n    background-color: ", ";\n  }\n  .react-autosuggest__suggestions-container--open {\n    position: absolute;\n    border: 1px solid transparent;\n    border-radius: 3px;\n    border-top-right-radius: 0px;\n    border-top-left-radius: 0px;\n    border-top: 0;\n    border-color: ", ";\n    background-color: white;\n    width: 100%;\n  }\n"], _a.raw = ["\n  .react-autosuggest__container {\n    position: relative;\n  }\n  .react-autosuggest__input--open input {\n    border-bottom-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n  }\n  .react-autosuggest__suggestion {\n    ", "\n    cursor: pointer;\n    &:hover {\n      background-color: ", ";\n    }\n  }\n  .react-autosuggest__suggestion--highlighted {\n    background-color: ", ";\n  }\n  .react-autosuggest__suggestions-container--open {\n    position: absolute;\n    border: 1px solid transparent;\n    border-radius: 3px;\n    border-top-right-radius: 0px;\n    border-top-left-radius: 0px;\n    border-top: 0;\n    border-color: ", ";\n    background-color: white;\n    width: 100%;\n  }\n"], styled_components_1.default(InputWrapper)(_a, function (props) { return styles_1.getFormElementDimensions(props.size); }, styles_1.colors.grey.extraLight, styles_1.colors.grey.light, styles_1.colors.grey.light));
+var StyledWrapper = styled_components_1.default(InputWrapper)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  .react-autosuggest__container {\n    position: relative;\n  }\n  .react-autosuggest__input--open input {\n    border-bottom-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n  }\n  .react-autosuggest__suggestion {\n    ", "\n    cursor: pointer;\n    &:hover {\n      background-color: ", ";\n    }\n  }\n  .react-autosuggest__suggestion--highlighted {\n    background-color: ", ";\n  }\n  .react-autosuggest__suggestions-container--open {\n    position: absolute;\n    border: 1px solid transparent;\n    border-radius: 3px;\n    border-top-right-radius: 0px;\n    border-top-left-radius: 0px;\n    border-top: 0;\n    border-color: ", ";\n    background-color: white;\n    width: 100%;\n  }\n"], ["\n  .react-autosuggest__container {\n    position: relative;\n  }\n  .react-autosuggest__input--open input {\n    border-bottom-right-radius: 0px;\n    border-bottom-left-radius: 0px;\n  }\n  .react-autosuggest__suggestion {\n    ", "\n    cursor: pointer;\n    &:hover {\n      background-color: ", ";\n    }\n  }\n  .react-autosuggest__suggestion--highlighted {\n    background-color: ", ";\n  }\n  .react-autosuggest__suggestions-container--open {\n    position: absolute;\n    border: 1px solid transparent;\n    border-radius: 3px;\n    border-top-right-radius: 0px;\n    border-top-left-radius: 0px;\n    border-top: 0;\n    border-color: ", ";\n    background-color: white;\n    width: 100%;\n  }\n"])), function (props) { return styles_1.getFormElementDimensions(props.size); }, styles_1.colors.grey.extraLight, styles_1.colors.grey.light, styles_1.colors.grey.light);
 var renderInputComponent = function (_a) {
     var size = _a.size, icon = _a.icon, handleClear = _a.handleClear;
     return function (inputProps) {
@@ -59,4 +63,4 @@ var Search = /** @class */ (function (_super) {
     return Search;
 }(React.Component));
 exports.default = Search;
-var _a;
+var templateObject_1;

@@ -11,12 +11,16 @@ export declare const IonicIcon: React.SFC<IconProps>;
 export declare const CloseIcon: StyledComponentClass<{
     className?: string | undefined;
     onClick: ClickHandler;
-}, any, {
+}, any, Pick<{
     className?: string | undefined;
     onClick: ClickHandler;
+}, "className" | "onClick"> & {
+    theme?: any;
 }>;
 export declare const LoadingIcon: StyledComponentClass<{
     className?: string | undefined;
-}, any, {
+}, any, Pick<{
     className?: string | undefined;
+}, "className"> & {
+    theme?: any;
 }>;

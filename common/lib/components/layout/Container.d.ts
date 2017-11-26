@@ -16,5 +16,7 @@ export interface BaseContainerProps extends ChildContainerProps {
     backgroundUrl?: string;
     compact?: boolean;
 }
-declare const StyledContainer: StyledComponentClass<BaseContainerProps, any, BaseContainerProps>;
+declare const StyledContainer: StyledComponentClass<BaseContainerProps, any, Pick<BaseContainerProps, "center" | "fluid" | "textCenter" | "maxWidth" | "className" | "vCenter" | "hCenter" | "fullHeight" | "textColor" | "bgColor" | "backgroundUrl" | "compact"> & {
+    theme?: any;
+}>;
 export default StyledContainer;

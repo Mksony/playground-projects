@@ -47,9 +47,9 @@ interface SampleSearchState {
   value: string;
 }
 
-class SampleSearch extends React.Component<{}, SampleSearchState> {
-  constructor() {
-    super();
+class SampleSearch extends React.Component<{},SampleSearchState> {
+  constructor(props: {}) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
     this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
