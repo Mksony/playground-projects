@@ -28,7 +28,12 @@ export interface IconProps {
   onClick?: ClickHandler;
 }
 
-const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, className, onClick }) => {
+const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({
+  iconSet,
+  name,
+  className,
+  onClick,
+}) => {
   const iconSetFolder = iconSets[iconSet];
   const ReactIcon = require(`react-icons/lib/${iconSetFolder}/${name}`);
   return (
@@ -38,13 +43,17 @@ const BaseIcon: React.SFC<BaseIconProps & IconProps> = ({ iconSet, name, classNa
   );
 };
 
-const StyledBaseIcon = styled(BaseIcon) `
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+const StyledBaseIcon = styled(BaseIcon)`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const IonicIcon: React.SFC<IconProps> = ({ name, className, onClick }) => {
+export const IonicIcon: React.SFC<IconProps> = ({
+  name,
+  className,
+  onClick,
+}) => {
   return (
     <StyledBaseIcon
       iconSet="Ionicons"
@@ -64,25 +73,21 @@ const rotate360 = keyframes`
 	}
 `;
 
-const BaseLoadingIcon: React.SFC<{ className?: string; }> = ({
-  className,
-}) => (<IonicIcon name="load-d" className={className} />);
+const BaseLoadingIcon: React.SFC<{ className?: string }> = ({ className }) => (
+  <IonicIcon name="load-d" className={className} />
+);
 
-const BaseCloseIcon: React.SFC<{ className?: string; onClick: ClickHandler }> = ({
-  className,
-  onClick,
-}) => (
-    <IonicIcon
-      name="close-circled"
-      className={className}
-      onClick={onClick}
-    />
-  );
+const BaseCloseIcon: React.SFC<{
+  className?: string;
+  onClick: ClickHandler;
+}> = ({ className, onClick }) => (
+  <IonicIcon name="close-circled" className={className} onClick={onClick} />
+);
 
-export const CloseIcon = styled(BaseCloseIcon) `
+export const CloseIcon = styled(BaseCloseIcon)`
   cursor: pointer;
 `;
 
-export const LoadingIcon = styled(BaseLoadingIcon) `
+export const LoadingIcon = styled(BaseLoadingIcon)`
   animation: ${rotate360} 1.25s linear infinite;
 `;

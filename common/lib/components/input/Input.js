@@ -35,10 +35,10 @@ var React = require("react");
 var styled_components_1 = require("styled-components");
 var styles_1 = require("../../styles");
 var Icon_1 = require("../icon/Icon");
-var RightIcon = styled_components_1.default(Icon_1.IonicIcon)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    right: 0;\n"], ["\n    position: absolute;\n    top: 0;\n    right: 0;\n"])));
-var RightCloseIcon = styled_components_1.default(Icon_1.CloseIcon)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    right: 0;\n"], ["\n    position: absolute;\n    top: 0;\n    right: 0;\n"])));
-var LeftIcon = styled_components_1.default(Icon_1.IonicIcon)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"])));
-var LeftLoadingIcon = styled_components_1.default(Icon_1.LoadingIcon)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n    position: absolute;\n    top: 0;\n    left: 0;\n"], ["\n    position: absolute;\n    top: 0;\n    left: 0;\n"])));
+var RightIcon = styled_components_1.default(Icon_1.IonicIcon)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  right: 0;\n"], ["\n  position: absolute;\n  top: 0;\n  right: 0;\n"])));
+var RightCloseIcon = styled_components_1.default(Icon_1.CloseIcon)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  right: 0;\n"], ["\n  position: absolute;\n  top: 0;\n  right: 0;\n"])));
+var LeftIcon = styled_components_1.default(Icon_1.IonicIcon)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n"])));
+var LeftLoadingIcon = styled_components_1.default(Icon_1.LoadingIcon)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n"])));
 var Input = /** @class */ (function (_super) {
     __extends(Input, _super);
     function Input(props) {
@@ -128,7 +128,7 @@ var Input = /** @class */ (function (_super) {
         var value = this.state.value;
         return (React.createElement("div", { className: className },
             this.getLeftIcon(),
-            React.createElement("input", __assign({ autoComplete: autoComplete, autoFocus: autoFocus, onBlur: this.handleBlur, placeholder: placeholder, type: type, onChange: this.handleChange }, otherProps, { ref: function (input) { return _this.input = input; }, onFocus: this.handleFocus, value: value })),
+            React.createElement("input", __assign({ autoComplete: autoComplete, autoFocus: autoFocus, onBlur: this.handleBlur, placeholder: placeholder, type: type, onChange: this.handleChange }, otherProps, { ref: function (input) { return (_this.input = input); }, onFocus: this.handleFocus, value: value })),
             this.getRightIcon()));
     };
     Input.defaultProps = {
@@ -136,15 +136,18 @@ var Input = /** @class */ (function (_super) {
     };
     return Input;
 }(React.Component));
-var StyledInput = styled_components_1.default(Input)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", "\n    ", "\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", "\n  }\n"], ["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", "\n    ",
-    "\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", "\n  }\n"])), function (props) { return styles_1.getFormElementDimensions(props.size); }, function (_a) {
-    var iconLeft = _a.iconLeft, iconRight = _a.iconRight, loadingIcon = _a.isLoading, clearIcon = _a.clearable;
+var formDimensionsMixin = function (props) {
+    return styles_1.getFormElementDimensions(props.size);
+};
+var iconMixin = function (props) {
     return styles_1.getIconPadding({
-        iconLeft: iconLeft,
-        iconRight: iconRight,
-        loadingIcon: loadingIcon,
-        clearIcon: clearIcon,
+        iconLeft: props.iconLeft,
+        iconRight: props.iconRight,
+        loadingIcon: props.isLoading,
+        clearIcon: props.clearable,
     });
-}, styles_1.colors.grey.default, function (props) { return styles_1.getFormElementDimensions(props.size); });
+};
+// prettier-ignore
+var StyledInput = styled_components_1.default(Input)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", ";\n    ", ";\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", ";\n  }\n"], ["\n  position: relative;\n  input {\n    background-color: white;\n    border: 1px solid transparent;\n    border-color: #dbdbdb;\n    border-radius: 3px;\n    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);\n    display: inline-flex;\n    font-size: 1rem;\n    justify-content: flex-start;\n    ", ";\n    ", ";\n    max-width: 100%;\n    width: 100%;\n    &:focus {\n      outline: none;\n    }\n  }\n  i {\n    font-size: 1rem;\n    color: ", ";\n    ", ";\n  }\n"])), formDimensionsMixin, iconMixin, styles_1.colors.grey.default, formDimensionsMixin);
 exports.default = StyledInput;
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;

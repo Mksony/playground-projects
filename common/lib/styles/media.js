@@ -21,9 +21,9 @@ var media = Object.keys(sizes).reduce(function (accumulator, label) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        return css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "], ["\n    @media (min-width: ", "px) {\n      ", "\n    }\n  "])), sizes[label], css.apply(void 0, args));
+        return css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    @media (min-width: ", "px) {\n      ", ";\n    }\n  "], ["\n    @media (min-width: ", "px) {\n      ", ";\n    }\n  "])), sizes[label], css.apply(void 0, args));
     };
     return accumulator;
-}, {});
+}, {}); // tslint:disable-line
 exports.default = media;
 var templateObject_1;

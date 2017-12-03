@@ -6,12 +6,11 @@ export interface CardProps {
   bgColor?: string;
 }
 
-const BaseCard: React.SFC<CardProps> = ({
-  children,
-  className,
-}) => (<div className={className}>{children}</div>);
+const BaseCard: React.SFC<CardProps> = ({ children, className }) => (
+  <div className={className}>{children}</div>
+);
 
-const Card = styled(BaseCard) `
+const Card = styled(BaseCard)`
   border-radius: 3px;
   background-color: ${({ bgColor }) => bgColor as string};
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);

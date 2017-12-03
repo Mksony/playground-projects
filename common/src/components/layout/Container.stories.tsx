@@ -3,9 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Container from './Container';
 
 storiesOf('Container', module)
-  .add('full height', () => (
-    <Container fullHeight bgColor="hotpink" />
-  ))
+  .add('full height', () => <Container fullHeight bgColor="hotpink" />)
   .add('centered content', () => (
     <Container center fullHeight bgColor="hotpink">
       <h1>Headline</h1>
@@ -26,7 +24,8 @@ storiesOf('Container', module)
       compact
       center
       fullHeight
-      backgroundUrl="https://unsplash.it/1920/1080">
+      backgroundUrl="https://unsplash.it/1920/1080"
+    >
       <h1>Hello</h1>
     </Container>
   ))

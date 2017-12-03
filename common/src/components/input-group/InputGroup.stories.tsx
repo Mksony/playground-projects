@@ -4,12 +4,7 @@ import InputGroup from './InputGroup';
 
 storiesOf('InputGroup', module)
   .add('Default', () => {
-    return (
-      <InputGroup
-        buttonLabel="Click Me"
-        placeholder="Enter Input"
-      />
-    );
+    return <InputGroup buttonLabel="Click Me" placeholder="Enter Input" />;
   })
   .add('Available Sizes', () => {
     return (

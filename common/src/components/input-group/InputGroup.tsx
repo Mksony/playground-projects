@@ -22,19 +22,19 @@ const InputGroup: React.SFC<InputGroupProps> = ({
   placeholder,
   className,
 }) => (
-    <div className={className}>
-      <Input {...inputProps} size={size} placeholder={placeholder} />
-      <Button
-        color="primary"
-        {...buttonProps}
-        size={size}
-        label={buttonLabel}
-        type="submit"
-      />
-    </div>
-  );
+  <div className={className}>
+    <Input {...inputProps} size={size} placeholder={placeholder} />
+    <Button
+      color="primary"
+      {...buttonProps}
+      size={size}
+      label={buttonLabel}
+      type="submit"
+    />
+  </div>
+);
 
-const StyledInputGroup = styled(InputGroup) `
+const StyledInputGroup = styled(InputGroup)`
   display: flex;
   & > div {
     flex: 1;

@@ -32,11 +32,13 @@ storiesOf('Card', module)
     return (
       <Container fullHeight maxWidth={600} center bgColor="hotpink">
         <Card bgColor="rgba(255, 255, 255, .6)">
-          <CardHeader title="Hello World"/>
+          <CardHeader title="Hello World" />
           <CardContent>
-            <p>Lorem ipsum dolor sit amet, mea paulo maluisset cu,
-              ne eum congue possim, quo ipsum munere reprehendunt in.
-              Atqui alienum persequeris at eam. Iusto persius scripserit ad</p>
+            <p>
+              Lorem ipsum dolor sit amet, mea paulo maluisset cu, ne eum congue
+              possim, quo ipsum munere reprehendunt in. Atqui alienum
+              persequeris at eam. Iusto persius scripserit ad
+            </p>
           </CardContent>
         </Card>
       </Container>

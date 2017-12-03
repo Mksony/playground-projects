@@ -6,10 +6,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "tslint:fix": "tslint --project ./tsconfig.json --fix"
   },
   "lint-staged": {
-    "[*.js, !common/lib/**/*.js]": ["eslint --fix", "prettier --write", "git add"]
+    "[*.js, !common/lib/**/*.js]": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "[*.ts, *.tsx, !common/lib/**/*.d.ts]": [
+      "npm run tslint:fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -23,16 +33,18 @@
   },
   "homepage": "https://github.com/Mksony/playground-projects#readme",
   "devDependencies": {
-    "babel-eslint": "^8.0.1",
-    "eslint": "^4.10.0",
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.12.1",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "^7.4.0",
+    "eslint-plugin-react": "^7.5.1",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "prettier": "^1.7.4"
+    "lint-staged": "^6.0.0",
+    "prettier": "^1.8.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
   }
 }

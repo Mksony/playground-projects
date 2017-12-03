@@ -3,9 +3,7 @@ import { storiesOf } from '@storybook/react';
 import Input from './Input';
 
 storiesOf('Input', module)
-  .add('Default', () => (
-    <Input placeholder="Enter Input" />
-  ))
+  .add('Default', () => <Input placeholder="Enter Input" />)
   .add('Available sizes', () => (
     <div>
       <Input size="small" placeholder="Enter Input" />
@@ -20,7 +18,4 @@ storiesOf('Input', module)
   .add('with right icon', () => (
     <Input placeholder="Enter Input" iconRight="checkmark" />
   ))
-  .add('loading', () => (
-    <Input placeholder="Enter Input" isLoading />
-  ))
-  ;
+  .add('loading', () => <Input placeholder="Enter Input" isLoading />);

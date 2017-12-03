@@ -14,9 +14,9 @@ interface InputWrapperProps {
 const InputWrapper: React.SFC<InputWrapperProps> = ({
   children,
   className,
-}) => (<div className={className}>{children}</div>);
-
-const StyledWrapper = styled(InputWrapper) `
+}) => <div className={className}>{children}</div>;
+// prettier-ignore
+const StyledWrapper = styled(InputWrapper)`
   .react-autosuggest__container {
     position: relative;
   }
@@ -52,8 +52,8 @@ export interface SearchProps {
   getSuggestionValue: (suggestion: any) => string;
   onSuggestionSelected?: (
     e: React.SyntheticEvent<HTMLElement>,
-    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }: any)
-    => void;
+    { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }: any,
+  ) => void;
   renderSuggestion: (suggestion: any) => React.ReactElement<any>;
   renderSuggestionsContainer?: (
     { containerProps, children, query }: any,
@@ -70,24 +70,21 @@ export interface SearchProps {
   isLoading?: boolean;
 }
 
-const renderInputComponent = ({
-  size,
-  icon,
-  handleClear,
-}: SearchProps) => (inputProps: any) => {
-    return (
-      <Input
-        size={size}
-        iconLeft={icon}
-        clearable
-        onClearClick={handleClear}
-        {...inputProps}
-      />
-    );
-  };
+const renderInputComponent = ({ size, icon, handleClear }: SearchProps) => (
+  inputProps: any,
+) => {
+  return (
+    <Input
+      size={size}
+      iconLeft={icon}
+      clearable
+      onClearClick={handleClear}
+      {...inputProps}
+    />
+  );
+};
 
 class Search extends React.Component<SearchProps> {
-
   static defaultProps: Partial<SearchProps> = {
     placeholder: 'Search...',
     type: 'search',

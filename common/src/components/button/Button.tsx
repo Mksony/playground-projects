@@ -38,8 +38,8 @@ const resolveColor = (props: ButtonProps) => {
     }
   `;
 };
-
-const StyledButton = styled(Button) `
+// prettier-ignore
+const StyledButton = styled(Button)`
   border: 1px solid transparent;
   border-radius: 3px;
   box-shadow: none;

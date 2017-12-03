@@ -19,7 +19,7 @@ var BaseIcon = function (_a) {
     var ReactIcon = require("react-icons/lib/" + iconSetFolder + "/" + name);
     return (React.createElement("i", { className: className, onClick: onClick }, React.createElement(ReactIcon)));
 };
-var StyledBaseIcon = styled_components_1.default(BaseIcon)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n"], ["\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n"])));
+var StyledBaseIcon = styled_components_1.default(BaseIcon)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"])));
 exports.IonicIcon = function (_a) {
     var name = _a.name, className = _a.className, onClick = _a.onClick;
     return (React.createElement(StyledBaseIcon, { iconSet: "Ionicons", name: name, className: className, onClick: onClick }));
