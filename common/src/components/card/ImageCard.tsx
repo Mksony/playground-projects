@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled, { StyledComponentClass } from 'styled-components';
+import { StyledComponentClass } from 'styled-components';
 
 import { Card, CardContent } from './';
 
@@ -17,9 +17,7 @@ const ImageCard: React.SFC<ImageCardProps> = ({
 }) => (
   <Card bgColor={bgColor}>
     <img src={imgSrc} alt={altText} />
-    <CardContent>
-      {children}
-    </CardContent>
+    <CardContent>{children}</CardContent>
   </Card>
 );
 

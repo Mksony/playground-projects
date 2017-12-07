@@ -5,40 +5,42 @@ import Search from './Search';
 
 const source = [
   {
-    'title': 'Little - Denesik',
-    'description': 'Reduced attitude-oriented pricing structure',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/judzhin_miles/128.jpg',
-    'price': '$75.41',
+    title: 'Little - Denesik',
+    description: 'Reduced attitude-oriented pricing structure',
+    image:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/judzhin_miles/128.jpg',
+    price: '$75.41',
   },
   {
-    'title': 'Deckow Inc',
-    'description': 'Pre-emptive responsive extranet',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/macxim/128.jpg',
-    'price': '$13.99',
+    title: 'Deckow Inc',
+    description: 'Pre-emptive responsive extranet',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/macxim/128.jpg',
+    price: '$13.99',
   },
   {
-    'title': 'Wiegand, Volkman and Wolff',
-    'description': 'Enterprise-wide optimal software',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/oskamaya/128.jpg',
-    'price': '$97.39',
+    title: 'Wiegand, Volkman and Wolff',
+    description: 'Enterprise-wide optimal software',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/oskamaya/128.jpg',
+    price: '$97.39',
   },
   {
-    'title': 'Anderson LLC',
-    'description': 'Organic tangible function',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
-    'price': '$81.28',
+    title: 'Anderson LLC',
+    description: 'Organic tangible function',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
+    price: '$81.28',
   },
   {
-    'title': 'AndOne LLC',
-    'description': 'Organic tangible function',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
-    'price': '$81.28',
+    title: 'AndOne LLC',
+    description: 'Organic tangible function',
+    image: 'https://s3.amazonaws.com/uifaces/faces/twitter/polarity/128.jpg',
+    price: '$81.28',
   },
   {
-    'title': 'Spinka - Bartell',
-    'description': 'Digitized optimal core',
-    'image': 'https://s3.amazonaws.com/uifaces/faces/twitter/craigelimeliah/128.jpg',
-    'price': '$40.57',
+    title: 'Spinka - Bartell',
+    description: 'Digitized optimal core',
+    image:
+      'https://s3.amazonaws.com/uifaces/faces/twitter/craigelimeliah/128.jpg',
+    price: '$40.57',
   },
 ];
 
@@ -47,13 +49,17 @@ interface SampleSearchState {
   value: string;
 }
 
-class SampleSearch extends React.Component<{},SampleSearchState> {
+class SampleSearch extends React.Component<{}, SampleSearchState> {
   constructor(props: {}) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(this);
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(this);
+    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
+      this,
+    );
+    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
+      this,
+    );
     this.state = {
       suggestions: [],
       value: '',
@@ -63,12 +69,17 @@ class SampleSearch extends React.Component<{},SampleSearchState> {
   getSuggestions(value: string) {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-    return inputLength === 0 ? [] : source.filter(lang =>
-      lang.title.toLowerCase().slice(0, inputLength) === inputValue,
-    );
+    return inputLength === 0
+      ? []
+      : source.filter(
+          lang => lang.title.toLowerCase().slice(0, inputLength) === inputValue,
+        );
   }
 
-  handleChange(e: React.SyntheticEvent<HTMLInputElement>, { newValue }: { newValue: string; }) {
+  handleChange(
+    e: React.SyntheticEvent<HTMLInputElement>,
+    { newValue }: { newValue: string },
+  ) {
     this.setState({
       value: newValue,
     });
@@ -93,17 +104,14 @@ class SampleSearch extends React.Component<{},SampleSearchState> {
   }
 
   render() {
-    const {
-      suggestions,
-      value,
-    } = this.state;
+    const { suggestions, value } = this.state;
     return (
       <Search
         value={value}
         suggestions={suggestions}
-        getSuggestionValue={(suggestion) => suggestion.title as string}
+        getSuggestionValue={suggestion => suggestion.title as string}
         onChange={this.handleChange}
-        renderSuggestion={(suggestion) => <div>{suggestion.title}</div>}
+        renderSuggestion={suggestion => <div>{suggestion.title}</div>}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         handleClear={this.handleClear}
@@ -112,12 +120,8 @@ class SampleSearch extends React.Component<{},SampleSearchState> {
       />
     );
   }
-
 }
 
-storiesOf('Search', module)
-  .add('Default', () => {
-    return (
-      <SampleSearch />
-    );
-  });
+storiesOf('Search', module).add('Default', () => {
+  return <SampleSearch />;
+});

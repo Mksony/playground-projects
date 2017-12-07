@@ -9,12 +9,13 @@ var styled_components_1 = require("styled-components");
 var styles_1 = require("../../styles");
 var resolveColor = function (_a) {
     var color = _a.color;
-    return ("\n  background-color: " + styles_1.colors[color] + ";\n");
+    return styled_components_1.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  background-color: ", ";\n"], ["\n  background-color: ", ";\n"])), styles_1.colors[color]);
 };
 var Tag = function (_a) {
     var text = _a.text, className = _a.className;
     return (React.createElement("span", { className: className }, text));
 };
-var StyledTag = styled_components_1.default(Tag)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n    ", "\n    color: white;\n    border-radius: 30px;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 0.75rem;\n    height: 2em;\n    line-height: 1.5;\n    padding-left: 0.875em;\n    padding-right: 0.875em;\n    white-space: nowrap;\n"], ["\n    ", "\n    color: white;\n    border-radius: 30px;\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    font-size: 0.75rem;\n    height: 2em;\n    line-height: 1.5;\n    padding-left: 0.875em;\n    padding-right: 0.875em;\n    white-space: nowrap;\n"])), resolveColor);
+// prettier-ignore
+var StyledTag = styled_components_1.default(Tag)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  ", "\n  color: white;\n  border-radius: 30px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 0.75rem;\n  height: 2em;\n  line-height: 1.5;\n  padding-left: 0.875em;\n  padding-right: 0.875em;\n  white-space: nowrap;\n"], ["\n  ", "\n  color: white;\n  border-radius: 30px;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  font-size: 0.75rem;\n  height: 2em;\n  line-height: 1.5;\n  padding-left: 0.875em;\n  padding-right: 0.875em;\n  white-space: nowrap;\n"])), resolveColor);
 exports.default = StyledTag;
-var templateObject_1;
+var templateObject_1, templateObject_2;

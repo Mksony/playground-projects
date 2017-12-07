@@ -19,15 +19,13 @@ export interface Media {
 }
 
 // iterate through the sizes and create a media template
-const media = Object.keys(sizes).reduce(
-  (accumulator, label) => {
-    accumulator[label] = (...args: {}[]) => css`
+const media = Object.keys(sizes).reduce((accumulator, label) => {
+  accumulator[label] = (...args: string[]) => css`
     @media (min-width: ${sizes[label]}px) {
-      ${css(...args)}
+      ${css(...args)};
     }
   `;
-    return accumulator;
-  },
-  {});
+  return accumulator;
+}, {}); // tslint:disable-line
 
 export default media as Media;

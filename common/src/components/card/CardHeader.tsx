@@ -16,9 +16,9 @@ export interface CardContentProps {
 const BaseCardContent: React.SFC<CardContentProps> = ({
   children,
   className,
-}) => (<div className={className}>{children}</div>);
+}) => <div className={className}>{children}</div>;
 
-export const CardContent = styled(BaseCardContent) `
+export const CardContent = styled(BaseCardContent)`
   padding: 1.5rem;
 `;
 
@@ -48,6 +48,7 @@ export const CardHeader: React.SFC<CardHeaderProps> = ({
 
 CardHeader.defaultProps = {
   component: 'p',
+
 };
 
 export default CardHeader;

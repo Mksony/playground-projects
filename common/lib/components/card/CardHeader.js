@@ -9,7 +9,7 @@ var styled_components_1 = require("styled-components");
 var styles_1 = require("../../styles");
 var BaseCardContent = function (_a) {
     var children = _a.children, className = _a.className;
-    return (React.createElement("div", { className: className }, children));
+    return React.createElement("div", { className: className }, children);
 };
 exports.CardContent = styled_components_1.default(BaseCardContent)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  padding: 1.5rem;\n"], ["\n  padding: 1.5rem;\n"])));
 var BaseCardTitle = styled_components_1.default.p(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  margin: 0;\n  font-size: 1.5rem;\n  font-weight: 700;\n"], ["\n  margin: 0;\n  font-size: 1.5rem;\n  font-weight: 700;\n"])));

@@ -5,28 +5,28 @@ import { Sizes } from 'types';
 import { getFormElementDimensions, getIconPadding, colors } from '../../styles';
 import { IonicIcon, LoadingIcon, CloseIcon } from '../icon/Icon';
 
-const RightIcon = styled(IonicIcon) `
-    position: absolute;
-    top: 0;
-    right: 0;
+const RightIcon = styled(IonicIcon)`
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
-const RightCloseIcon = styled(CloseIcon) `
-    position: absolute;
-    top: 0;
-    right: 0;
+const RightCloseIcon = styled(CloseIcon)`
+  position: absolute;
+  top: 0;
+  right: 0;
 `;
 
-const LeftIcon = styled(IonicIcon) `
-    position: absolute;
-    top: 0;
-    left: 0;
+const LeftIcon = styled(IonicIcon)`
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
-const LeftLoadingIcon = styled(LoadingIcon) `
-    position: absolute;
-    top: 0;
-    left: 0;
+const LeftLoadingIcon = styled(LoadingIcon)`
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export interface InputProps {
@@ -55,7 +55,6 @@ interface InputState {
 }
 
 class Input extends React.Component<InputProps, InputState> {
-
   static defaultProps: InputProps = {
     type: 'text',
   };
@@ -179,7 +178,7 @@ class Input extends React.Component<InputProps, InputState> {
           type={type}
           onChange={this.handleChange}
           {...otherProps}
-          ref={(input) => this.input = input as HTMLInputElement}
+          ref={input => (this.input = input as HTMLInputElement)}
           onFocus={this.handleFocus}
           value={value}
         />
@@ -188,8 +187,17 @@ class Input extends React.Component<InputProps, InputState> {
     );
   }
 }
-
-const StyledInput = styled(Input) `
+const formDimensionsMixin = (props: InputProps) =>
+  getFormElementDimensions(props.size as Sizes);
+const iconMixin = (props: InputProps) =>
+  getIconPadding({
+    iconLeft: props.iconLeft,
+    iconRight: props.iconRight,
+    loadingIcon: props.isLoading,
+    clearIcon: props.clearable,
+  });
+// prettier-ignore
+const StyledInput = styled(Input)`
   position: relative;
   input {
     background-color: white;
@@ -200,20 +208,8 @@ const StyledInput = styled(Input) `
     display: inline-flex;
     font-size: 1rem;
     justify-content: flex-start;
-    ${props => getFormElementDimensions(props.size as Sizes)}
-    ${({
-    iconLeft,
-    iconRight,
-    isLoading: loadingIcon,
-    clearable: clearIcon,
-    }) =>
-    getIconPadding({
-      iconLeft,
-      iconRight,
-      loadingIcon,
-      clearIcon,
-    })
-  }
+    ${formDimensionsMixin};
+    ${iconMixin};
     max-width: 100%;
     width: 100%;
     &:focus {
@@ -223,7 +219,7 @@ const StyledInput = styled(Input) `
   i {
     font-size: 1rem;
     color: ${colors.grey.default};
-    ${props => getFormElementDimensions(props.size as Sizes)}
+    ${formDimensionsMixin};
   }
 `;
 

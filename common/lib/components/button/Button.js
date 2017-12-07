@@ -33,6 +33,7 @@ var resolveColor = function (props) {
     var ghost = props.ghost;
     return "\n    background-color: " + (ghost ? 'transparent' : styles_1.colors[color]) + ";\n    border-color: " + styles_1.colors[color] + ";\n    color: " + (ghost ? styles_1.colors[color] : 'white') + ";\n    &:hover {\n      background-color: " + (ghost ? styles_1.colors[color] : 'transparent') + ";\n      color: " + (ghost ? 'white' : styles_1.colors[color]) + ";\n    }\n  ";
 };
+// prettier-ignore
 var StyledButton = styled_components_1.default(Button)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  border: 1px solid transparent;\n  border-radius: 3px;\n  box-shadow: none;\n  cursor: pointer;\n  display: inline-flex;\n  flex-shrink: 0;\n  align-items: center;\n  ", "\n  ", "\n  transition: all 200ms ease-in-out;\n  user-select: none;\n"], ["\n  border: 1px solid transparent;\n  border-radius: 3px;\n  box-shadow: none;\n  cursor: pointer;\n  display: inline-flex;\n  flex-shrink: 0;\n  align-items: center;\n  ", "\n  ", "\n  transition: all 200ms ease-in-out;\n  user-select: none;\n"])), function (props) { return styles_1.getFormElementDimensions(props.size); }, resolveColor);
 StyledButton.defaultProps = {
     component: 'button',
