@@ -6,20 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "lint-staged",
-    "tslint:fix": "tslint --project ./tsconfig.json --fix"
-  },
-  "lint-staged": {
-    "[*.js, !common/lib/**/*.js]": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "[*.ts, *.tsx, !common/lib/**/*.d.ts]": [
-      "npm run tslint:fix",
-      "prettier --write",
-      "git add"
-    ]
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
