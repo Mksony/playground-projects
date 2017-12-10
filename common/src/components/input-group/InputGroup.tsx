@@ -8,7 +8,7 @@ import Button, { ButtonProps } from '../button/Button';
 export interface InputGroupProps {
   buttonProps?: ButtonProps;
   inputProps?: InputProps;
-  buttonLabel?: string;
+  buttonLabel: string;
   placeholder?: string;
   size?: Sizes;
   className?: string;

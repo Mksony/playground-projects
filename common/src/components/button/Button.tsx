@@ -3,26 +3,25 @@ import styled, { StyledComponentClass } from 'styled-components';
 import { DefaultColors, Sizes } from 'types';
 
 import { colors, getFormElementDimensions } from '../../styles';
-// tslint:disable:no-any
+
 export interface ButtonProps {
-  component?: any; // TODO: Find correct typing for component or string
+  component?: React.SFC<any> | React.ComponentClass<any> | string;
   size?: Sizes;
   color?: DefaultColors;
   ghost?: boolean;
   className?: string;
-  onClick?: {};
+  onClick?: React.MouseEventHandler<any>;
   type?: {};
-  label?: string;
+  label: string;
 }
 
-const Button: React.SFC<ButtonProps> = ({
-  label,
-  className,
-  component,
-  ghost,
-  ...otherProps,
-}) => {
-  return React.createElement(component, { className, ...otherProps }, label);
+const Button: React.SFC<ButtonProps> = props => {
+  const { label, className, ...otherProps } = props;
+  return React.createElement(
+    props.component!,
+    { className, ...otherProps },
+    label
+  );
 };
 
 const resolveColor = (props: ButtonProps) => {
