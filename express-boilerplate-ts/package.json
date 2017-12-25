@@ -2,14 +2,14 @@
   "name": "express-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.ts",
   "scripts": {
     "test": "NODE_ENV=test jest --config test/jest.config.js",
     "test:report": "yarn test --coverage",
     "test:ci": "yarn test --ci --testResultsProcessor=\"jest-junit\"",
     "test:watch": "yarn test --watch",
-    "start": "nodemon --exec 'ts-node --cache-directory .tscache' ./server.ts",
-    "start:debug": "nodemon --inspect-brk=0.0.0.0:9229 server.js"
+    "start": "nodemon --exec ts-node ./server.ts",
+    "start:debug": "ts-node --inspect-brk ./server.ts"
   },
   "keywords": [],
   "author": "",
