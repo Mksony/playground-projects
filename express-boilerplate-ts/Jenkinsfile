@@ -1,0 +1,24 @@
+node {
+    checkout([$class: 'GitSCM', branches: [[name: "${BRANCH_NAME}"]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'PathRestriction', excludedRegions: '', includedRegions: 'express-boilerplate-ts/.*'], [$class: 'PruneStaleBranch'], [$class: 'CloneOption', depth: 0, noTags: false, reference: "${JENKINS_HOME}/repos/playground-projects", shallow: false]], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Mksony/playground-projects.git']]])
+
+    docker.image('node:8.9.1').inside {
+        withEnv([
+        'CI=true'
+        ]) {
+
+            stage('Install dependencies') {
+                sh 'cd express-boilerplate-ts && yarn'
+            }
+
+            stage('Run tests') {
+                sh 'cd express-boilerplate-ts && yarn test:ci'
+                stash includes: 'express-boilerplate-ts/junit.xml', name: 'testResults'
+            }
+
+        }
+    }
+    stage('Publish test results') {
+        unstash 'testResults'
+        junit 'express-boilerplate-ts/junit.xml'
+    }
+}
