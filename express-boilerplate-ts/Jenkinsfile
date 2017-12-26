@@ -12,7 +12,7 @@ node {
 
             stage('Run tests') {
                 sh 'cd express-boilerplate-ts && yarn test:ci'
-                stash includes: 'express-boilerplate/junit.xml', name: 'testResults'
+                stash includes: 'express-boilerplate-ts/junit.xml', name: 'testResults'
             }
 
         }
